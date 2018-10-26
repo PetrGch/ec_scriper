@@ -44,7 +44,7 @@ export async function deleteManyCurrencies(currencies) {
 
 export async function updateManyCurrencies(currencies) {
   await currencies.forEach(async ({oldCurrency, newCurrency}) => {
-    if (oldCurrency.exchange_currency_amounts && oldCurrency.exchange_currency_amounts.length !== 0) {
+    if (oldCurrency.exchange_currency_amounts && Array.isArray(oldCurrency.exchange_currency_amounts)) {
       await updateManyCurrencyAmount(oldCurrency, newCurrency)
         .then(() => {
           if (newCurrency.currency_name && oldCurrency.currency_name !== newCurrency.currency_name) {
@@ -79,11 +79,11 @@ async function findAllCurrenciesByBranchName(branchesPayload) {
           await deleteManyCurrencies(filteredCurrencies.delete);
         }
 
-        if (filteredCurrencies.create) {
+        if (filteredCurrencies.create.length !== 0) {
           await createManyCurrencies(foundBranch.id, filteredCurrencies.create);
         }
 
-        if (filteredCurrencies.update) {
+        if (filteredCurrencies.update.length !== 0) {
           await updateManyCurrencies(filteredCurrencies.update);
         }
       }

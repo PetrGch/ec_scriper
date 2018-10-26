@@ -4,8 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   const ExchangeCurrencyAmount = sequelize.define('exchange_currency_amount', {
     currency_amount: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true
+      allowNull: false
     },
     sell_price: {
       type: DataTypes.DOUBLE,

@@ -59,8 +59,8 @@ async function parseOption(page) {
           const currencyValue = item.querySelectorAll('tr');
           [...currencyValue].forEach(item => {
             const amount = {};
-            if (!rate.exchange_currency_amount) {
-              rate.exchange_currency_amount = [];
+            if (!rate.exchange_currency_amounts) {
+              rate.exchange_currency_amounts = [];
             }
 
             const currencyAmount = item.querySelector('span[ng-bind*="denom"]');
@@ -69,7 +69,7 @@ async function parseOption(page) {
             // amount.currency_amount = currencyAmount.innerHTML;
             // amount.sell_price = currencySell.innerHTML;
             // amount.buy_price = currencyBuy.innerHTML;
-            rate.exchange_currency_amount.push({
+            rate.exchange_currency_amounts.push({
               currency_amount: currencyAmount.innerHTML,
               sell_price: currencySell.innerHTML,
               buy_price: currencyBuy.innerHTML
