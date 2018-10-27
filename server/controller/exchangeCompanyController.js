@@ -6,6 +6,8 @@ import {
   getAllExchangeCompanies,
   postExchangeCompany, updateCompany
 } from "../service/exchangeCompanyService";
+import {scraper} from "../../scriper/scraper";
+import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
 
 const exchangeCompanyController = express.Router({});
 
@@ -15,6 +17,25 @@ exchangeCompanyController.get('/', (req, res) => {
       res.json(company);
     })
     .catch(ex => res.send(ex));
+});
+
+exchangeCompanyController.put('/scraper', (req, res) => {
+  scraper()
+    .then(branchesPayload => {
+      updateCurrenciesAmount(branchesPayload)
+        .then((companies) => {
+          res.json(companies)
+        }, (ex) => {
+          throw new Error(ex);
+        })
+        .catch((ex) => {
+          res.send(ex);
+        })
+    }, ex => {
+      throw new Error(ex)
+    }).catch(ex => {
+      res.send(ex);
+  })
 });
 
 exchangeCompanyController.get('/:id', (req, res) => {

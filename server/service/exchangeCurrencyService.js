@@ -15,7 +15,7 @@ export function createManyCurrencies(companyId, currencies) {
         exchange_company_id: companyId
       })
         .then(currencyAmount => {
-          return createManyCurrenciesAmount(currencyAmount.id, currency.exchange_currency_amount);
+          return createManyCurrenciesAmount(currencyAmount.id, currency.exchange_currency_amounts);
         });
     }));
   }

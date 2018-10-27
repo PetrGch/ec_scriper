@@ -47,12 +47,7 @@ export async function updateManyCurrencyAmount(oldCurrency, newCurrency) {
     await updateAllAmounts(filteredAmounts.update);
   }
 
-
-  return Promise.resolve();
-  // return findManyCurrenciesAmount(oldCurrency.exchange_currency_amounts)
-  //   .then((foundCurrency) => {
-  //     filterAmounts()
-  //   }, (ex) => ex);
+  return null;
 }
 
 function filterAmounts(foundCurrency, payloadCurrency) {

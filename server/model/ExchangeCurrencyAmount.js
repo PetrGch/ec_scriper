@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+export function defineExchangeCurrencyAmount(sequelize, DataTypes) {
   const ExchangeCurrencyAmount = sequelize.define('exchange_currency_amount', {
     currency_amount: {
       type: DataTypes.STRING,

@@ -1,6 +1,18 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+export const currencyType = [
+  'USD', 'GBP', 'EUR', 'CHF',
+  'AUD', 'JPY', 'MYR', 'SGD',
+  'HKD', 'CAD', 'DKK', 'NOK',
+  'SEK', 'TWD', 'KRW', 'CNY',
+  'PHP', 'NZD', 'SAR', 'MMK',
+  'AED', 'QAR', 'OMR', 'BHD',
+  'VND', 'BND', 'KWD', 'ZAR',
+  'IDR', 'INR', 'SCOT', 'RUB',
+  'MOP', 'TRY'];
+
+
+export function defineExchangeCurrency(sequelize, DataTypes) {
   const ExchangeCurrency = sequelize.define('exchange_currency', {
     currency_name: {
       type: DataTypes.STRING,
@@ -8,10 +20,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     currency_type: {
       type: DataTypes.ENUM,
-      values: ['USD', 'EUR', 'GBP'],
+      values: [...currencyType],
       allowNull: false
     }
-
   }, {
     underscored: true,
     tableName: 'exchange_currency'
@@ -23,4 +34,4 @@ module.exports = function(sequelize, DataTypes) {
   };
 
   return ExchangeCurrency;
-};
+}

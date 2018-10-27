@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 
 import properties from "./properties";
 import index from "./controller/index";
-import * as models from "./model";
+import models from "./model";
 
 const app = express();
 

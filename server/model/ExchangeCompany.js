@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(sequelize, DataTypes) {
+export function defineExchangeCompany(sequelize, DataTypes) {
   const ExchangeCompany = sequelize.define('exchange_company', {
     uuid: {
       type: DataTypes.UUID,
