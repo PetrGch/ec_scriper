@@ -1,13 +1,16 @@
 const puppeteer = require('puppeteer');
 
 export async function scraper() {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
   const page = await browser.newPage();
 
   const selector = '.country-name';
   const wait = page.waitForFunction(selector => !!document.querySelector(selector), {}, selector);
   await page.setDefaultNavigationTimeout(120000);
-  await page.goto('https://www.superrichthailand.com/#!/en/exchange');
+  await page.goto('https://www.superrichthailand.com/#!/en/exchange', {waitUntil: 'networkidle0'});
   await wait;
 
   const selectorOption = await page.evaluate(() => {
