@@ -2,1276 +2,1270 @@
   {
     "branch_name": "Headquarter Rajdamri 1",
     "exchange_currencies": [
-      {
-        "currency_type": "USD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100",
-            "sell_price": "32.72",
-            "buy_price": "32.68"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "32.72",
-            "buy_price": "32.68"
-          },
-          {
-            "currency_amount": "10 - 20",
-            "sell_price": "32.62",
-            "buy_price": "32.53"
-          },
-          {
-            "currency_amount": "5",
-            "sell_price": "32.62",
-            "buy_price": "32.43"
-          },
-          {
-            "currency_amount": "1",
-            "sell_price": "32.42",
-            "buy_price": "32.08"
-          }
-        ]
-      },
-      {
-        "currency_type": "GBP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50",
-            "sell_price": "42.70",
-            "buy_price": "42.55"
-          },
-          {
-            "currency_amount": "20- 5",
-            "sell_price": "42.60",
-            "buy_price": "42.45"
-          }
-        ]
-      },
-      {
-        "currency_type": "EUR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500-100",
-            "sell_price": "37.70",
-            "buy_price": "37.55"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "37.65",
-            "buy_price": "37.50"
-          },
-          {
-            "currency_amount": "20-5",
-            "sell_price": "37.65",
-            "buy_price": "37.45"
-          }
-        ]
-      },
-      {
-        "currency_type": "CHF",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "32.80",
-            "buy_price": "32.65"
-          }
-        ]
-      },
-      {
-        "currency_type": "AUD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "23.25",
-            "buy_price": "23.15"
-          }
-        ]
-      },
-      {
-        "currency_type": "JPY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 1000",
-            "sell_price": "0.2925",
-            "buy_price": "0.2910"
-          }
-        ]
-      },
-      {
-        "currency_type": "MYR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 50",
-            "sell_price": "7.86",
-            "buy_price": "7.83"
-          },
-          {
-            "currency_amount": "10 - 5",
-            "sell_price": "7.76",
-            "buy_price": "7.63"
-          },
-          {
-            "currency_amount": "2 - 1",
-            "sell_price": "7.76",
-            "buy_price": "7.43"
-          }
-        ]
-      },
-      {
-        "currency_type": "SGD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000",
-            "sell_price": "23.75",
-            "buy_price": "23.65"
-          },
-          {
-            "currency_amount": "100 - 2",
-            "sell_price": "23.75",
-            "buy_price": "23.65"
-          }
-        ]
-      },
-      {
-        "currency_type": "HKD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "4.20",
-            "buy_price": "4.17"
-          }
-        ]
-      },
-      {
-        "currency_type": "CAD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "25.05",
-            "buy_price": "24.90"
-          }
-        ]
-      },
-      {
-        "currency_type": "DKK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 50",
-            "sell_price": "5.03",
-            "buy_price": "5.00"
-          }
-        ]
-      },
-      {
-        "currency_type": "NOK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 50",
-            "sell_price": "3.96",
-            "buy_price": "3.93"
-          }
-        ]
-      },
-      {
-        "currency_type": "SEK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 20",
-            "sell_price": "3.62",
-            "buy_price": "3.59"
-          }
-        ]
-      },
-      {
-        "currency_type": "TWD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "2000 - 100",
-            "sell_price": "1.075",
-            "buy_price": "1.065"
-          }
-        ]
-      },
-      {
-        "currency_type": "KRW",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50000 - 5000",
-            "sell_price": "0.0292",
-            "buy_price": "0.0290"
-          },
-          {
-            "currency_amount": "1000",
-            "sell_price": "0.0282",
-            "buy_price": "0.0280"
-          }
-        ]
-      },
-      {
-        "currency_type": "CNY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100",
-            "sell_price": "4.71",
-            "buy_price": "4.69"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "4.71",
-            "buy_price": "4.69"
-          },
-          {
-            "currency_amount": "20 - 10",
-            "sell_price": "4.66",
-            "buy_price": "4.59"
-          },
-          {
-            "currency_amount": "5 - 1",
-            "sell_price": "4.61",
-            "buy_price": "4.39"
-          }
-        ]
-      },
-      {
-        "currency_type": "PHP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 20",
-            "sell_price": "0.610",
-            "buy_price": "0.600"
-          }
-        ]
-      },
-      {
-        "currency_type": "NZD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5 ",
-            "sell_price": "21.65",
-            "buy_price": "21.45"
-          }
-        ]
-      },
-      {
-        "currency_type": "SAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 1",
-            "sell_price": "8.70",
-            "buy_price": "8.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "AED",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 5",
-            "sell_price": "8.90",
-            "buy_price": "8.80"
-          }
-        ]
-      },
-      {
-        "currency_type": "QAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 1",
-            "sell_price": "8.85",
-            "buy_price": "8.70"
-          }
-        ]
-      },
-      {
-        "currency_type": "OMR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50 - 1",
-            "sell_price": "84.60",
-            "buy_price": "84.10"
-          }
-        ]
-      },
-      {
-        "currency_type": "BHD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "20 - 0.25",
-            "sell_price": "86.00",
-            "buy_price": "85.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "VND",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500000 -10000 VND(:1000)",
-            "sell_price": "1.42",
-            "buy_price": "1.40"
-          }
-        ]
-      },
-      {
-        "currency_type": "BND",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 1",
-            "sell_price": "23.60",
-            "buy_price": "23.50"
-          }
-        ]
-      },
-      {
-        "currency_type": "KWD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "20 - 0.25",
-            "sell_price": "106.90",
-            "buy_price": "106.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "ZAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 10",
-            "sell_price": "2.22",
-            "buy_price": "2.17"
-          },
-          {
-            "currency_amount": "200",
-            "sell_price": "2.22",
-            "buy_price": "2.14"
-          }
-        ]
-      },
-      {
-        "currency_type": "IDR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100000 - 1000 IDR(:1000) ",
-            "sell_price": "2.19",
-            "buy_price": "2.16"
-          }
-        ]
-      },
-      {
-        "currency_type": "INR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 5",
-            "sell_price": "0.450",
-            "buy_price": "0.440"
-          },
-          {
-            "currency_amount": "2000",
-            "sell_price": "0.450",
-            "buy_price": "0.435"
-          }
-        ]
-      },
-      {
-        "currency_type": "SCOT",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "42.50",
-            "buy_price": "42.10"
-          }
-        ]
-      },
-      {
-        "currency_type": "RUB",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "5000 - 10",
-            "sell_price": "0.510",
-            "buy_price": "0.495"
-          }
-        ]
-      },
-      {
-        "currency_type": "MOP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "4.10",
-            "buy_price": "4.07"
-          }
-        ]
-      },
-      {
-        "currency_type": "TRY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "200 - 5",
-            "sell_price": "6.00",
-            "buy_price": "5.80"
-          }
-        ]
-      },
-      {
-        "currency_type": "MMK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 500",
-            "sell_price": "0.0217",
-            "buy_price": "0.0200"
-          }
-        ]
-      }
+      [
+        {
+          "currency_amount": "100",
+          "sell_price": "33.03",
+          "buy_price": "32.96",
+          "currency_amount_from": "100",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "33.03",
+          "buy_price": "32.96",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "10 - 20",
+          "sell_price": "32.93",
+          "buy_price": "32.81",
+          "currency_amount_from": "10",
+          "currency_amount_to": "20"
+        },
+        {
+          "currency_amount": "5",
+          "sell_price": "32.93",
+          "buy_price": "32.71",
+          "currency_amount_from": "5",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "1",
+          "sell_price": "32.73",
+          "buy_price": "32.36",
+          "currency_amount_from": "1",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "50",
+          "sell_price": "42.45",
+          "buy_price": "42.05",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20- 5",
+          "sell_price": "42.35",
+          "buy_price": "41.95",
+          "currency_amount_from": "20",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500-100",
+          "sell_price": "37.60",
+          "buy_price": "37.45",
+          "currency_amount_from": "100",
+          "currency_amount_to": "500"
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "37.55",
+          "buy_price": "37.40",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20-5",
+          "sell_price": "37.55",
+          "buy_price": "37.35",
+          "currency_amount_from": "20",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "33.10",
+          "buy_price": "32.95",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "23.35",
+          "buy_price": "23.25",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 1000",
+          "sell_price": "0.2955",
+          "buy_price": "0.2940",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "10000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 50",
+          "sell_price": "7.91",
+          "buy_price": "7.88",
+          "currency_amount_from": "100",
+          "currency_amount_to": "50"
+        },
+        {
+          "currency_amount": "10 - 5",
+          "sell_price": "7.81",
+          "buy_price": "7.68",
+          "currency_amount_from": "10",
+          "currency_amount_to": "5"
+        },
+        {
+          "currency_amount": "2 - 1",
+          "sell_price": "7.81",
+          "buy_price": "7.48",
+          "currency_amount_from": "1",
+          "currency_amount_to": "2"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000",
+          "sell_price": "23.90",
+          "buy_price": "23.80",
+          "currency_amount_from": "1000",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "100 - 2",
+          "sell_price": "23.90",
+          "buy_price": "23.80",
+          "currency_amount_from": "100",
+          "currency_amount_to": "2"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "4.22",
+          "buy_price": "4.20",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "25.20",
+          "buy_price": "25.10",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 50",
+          "sell_price": "5.03",
+          "buy_price": "5.00",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 50",
+          "sell_price": "3.94",
+          "buy_price": "3.91",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 20",
+          "sell_price": "3.61",
+          "buy_price": "3.57",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "2000 - 100",
+          "sell_price": "1.080",
+          "buy_price": "1.070",
+          "currency_amount_from": "100",
+          "currency_amount_to": "2000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "50000 - 5000",
+          "sell_price": "0.0291",
+          "buy_price": "0.0289",
+          "currency_amount_from": "5000",
+          "currency_amount_to": "50000"
+        },
+        {
+          "currency_amount": "1000",
+          "sell_price": "0.0281",
+          "buy_price": "0.0279",
+          "currency_amount_from": "1000",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100",
+          "sell_price": "4.73",
+          "buy_price": "4.71",
+          "currency_amount_from": "100",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "4.73",
+          "buy_price": "4.71",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20 - 10",
+          "sell_price": "4.68",
+          "buy_price": "4.61",
+          "currency_amount_from": "10",
+          "currency_amount_to": "20"
+        },
+        {
+          "currency_amount": "5 - 1",
+          "sell_price": "4.63",
+          "buy_price": "4.41",
+          "currency_amount_from": "1",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 20",
+          "sell_price": "0.610",
+          "buy_price": "0.600",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5 ",
+          "sell_price": "21.55",
+          "buy_price": "21.40",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 1",
+          "sell_price": "8.75",
+          "buy_price": "8.70",
+          "currency_amount_from": "1",
+          "currency_amount_to": "500"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 5",
+          "sell_price": "9.00",
+          "buy_price": "8.90",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 1",
+          "sell_price": "8.90",
+          "buy_price": "8.80",
+          "currency_amount_from": "1",
+          "currency_amount_to": "500"
+        }
+      ],
+      [
+        {
+          "currency_amount": "50 - 1",
+          "sell_price": "85.10",
+          "buy_price": "84.90",
+          "currency_amount_from": "1",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "20 - 0.25",
+          "sell_price": "86.80",
+          "buy_price": "86.45",
+          "currency_amount_from": "0",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500000 -10000 VND(:1000)",
+          "sell_price": "1.42",
+          "buy_price": "1.40",
+          "currency_amount_from": "10000",
+          "currency_amount_to": "500000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 1",
+          "sell_price": "23.80",
+          "buy_price": "23.70",
+          "currency_amount_from": "1",
+          "currency_amount_to": "10000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "20 - 0.25",
+          "sell_price": "107.80",
+          "buy_price": "107.55",
+          "currency_amount_from": "0",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 10",
+          "sell_price": "2.22",
+          "buy_price": "2.18",
+          "currency_amount_from": "10",
+          "currency_amount_to": "100"
+        },
+        {
+          "currency_amount": "200",
+          "sell_price": "2.22",
+          "buy_price": "2.15",
+          "currency_amount_from": "200",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100000 - 1000 IDR(:1000) ",
+          "sell_price": "2.18",
+          "buy_price": "2.15",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "100000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 5",
+          "sell_price": "0.450",
+          "buy_price": "0.440",
+          "currency_amount_from": "5",
+          "currency_amount_to": "500"
+        },
+        {
+          "currency_amount": "2000",
+          "sell_price": "0.450",
+          "buy_price": "0.435",
+          "currency_amount_from": "2000",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "42.30",
+          "buy_price": "42.00",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "5000 - 10",
+          "sell_price": "0.510",
+          "buy_price": "0.495",
+          "currency_amount_from": "10",
+          "currency_amount_to": "5000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "4.10",
+          "buy_price": "4.08",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "200 - 5",
+          "sell_price": "6.10",
+          "buy_price": "5.90",
+          "currency_amount_from": "200",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 500",
+          "sell_price": "0.0217",
+          "buy_price": "0.0200",
+          "currency_amount_from": "10000",
+          "currency_amount_to": "500"
+        }
+      ]
     ]
   },
   {
     "branch_name": "Central Westgate",
     "exchange_currencies": [
-      {
-        "currency_type": "USD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100",
-            "sell_price": "32.72",
-            "buy_price": "32.63"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "32.72",
-            "buy_price": "32.63"
-          },
-          {
-            "currency_amount": "10 - 20",
-            "sell_price": "32.62",
-            "buy_price": "32.43"
-          },
-          {
-            "currency_amount": "5",
-            "sell_price": "32.62",
-            "buy_price": "32.33"
-          },
-          {
-            "currency_amount": "1",
-            "sell_price": "32.42",
-            "buy_price": "31.98"
-          }
-        ]
-      },
-      {
-        "currency_type": "GBP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50",
-            "sell_price": "42.70",
-            "buy_price": "42.40"
-          },
-          {
-            "currency_amount": "20- 5",
-            "sell_price": "42.60",
-            "buy_price": "42.30"
-          }
-        ]
-      },
-      {
-        "currency_type": "EUR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500-100",
-            "sell_price": "37.70",
-            "buy_price": "37.45"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "37.65",
-            "buy_price": "37.40"
-          },
-          {
-            "currency_amount": "20-5",
-            "sell_price": "37.65",
-            "buy_price": "37.35"
-          }
-        ]
-      },
-      {
-        "currency_type": "CHF",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "32.80",
-            "buy_price": "32.50"
-          }
-        ]
-      },
-      {
-        "currency_type": "AUD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "23.25",
-            "buy_price": "23.05"
-          }
-        ]
-      },
-      {
-        "currency_type": "JPY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 1000",
-            "sell_price": "0.2925",
-            "buy_price": "0.2905"
-          }
-        ]
-      },
-      {
-        "currency_type": "MYR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 50",
-            "sell_price": "7.86",
-            "buy_price": "7.78"
-          },
-          {
-            "currency_amount": "10 - 5",
-            "sell_price": "7.76",
-            "buy_price": "7.58"
-          },
-          {
-            "currency_amount": "2 - 1",
-            "sell_price": "7.76",
-            "buy_price": "7.38"
-          }
-        ]
-      },
-      {
-        "currency_type": "SGD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000",
-            "sell_price": "23.75",
-            "buy_price": "23.55"
-          },
-          {
-            "currency_amount": "100 - 2",
-            "sell_price": "23.75",
-            "buy_price": "23.55"
-          }
-        ]
-      },
-      {
-        "currency_type": "HKD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "4.20",
-            "buy_price": "4.14"
-          }
-        ]
-      },
-      {
-        "currency_type": "CAD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "25.05",
-            "buy_price": "24.80"
-          }
-        ]
-      },
-      {
-        "currency_type": "DKK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 50",
-            "sell_price": "5.03",
-            "buy_price": "4.98"
-          }
-        ]
-      },
-      {
-        "currency_type": "NOK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 50",
-            "sell_price": "3.96",
-            "buy_price": "3.91"
-          }
-        ]
-      },
-      {
-        "currency_type": "SEK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 20",
-            "sell_price": "3.62",
-            "buy_price": "3.57"
-          }
-        ]
-      },
-      {
-        "currency_type": "TWD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "2000 - 100",
-            "sell_price": "1.075",
-            "buy_price": "1.045"
-          }
-        ]
-      },
-      {
-        "currency_type": "KRW",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50000 - 5000",
-            "sell_price": "0.0292",
-            "buy_price": "0.0284"
-          },
-          {
-            "currency_amount": "1000",
-            "sell_price": "0.0282",
-            "buy_price": "0.0274"
-          }
-        ]
-      },
-      {
-        "currency_type": "CNY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100",
-            "sell_price": "4.71",
-            "buy_price": "4.63"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "4.71",
-            "buy_price": "4.63"
-          },
-          {
-            "currency_amount": "20 - 10",
-            "sell_price": "4.66",
-            "buy_price": "4.43"
-          },
-          {
-            "currency_amount": "5 - 1",
-            "sell_price": "4.61",
-            "buy_price": "4.11"
-          }
-        ]
-      },
-      {
-        "currency_type": "PHP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 20",
-            "sell_price": "0.610",
-            "buy_price": "0.580"
-          }
-        ]
-      },
-      {
-        "currency_type": "NZD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5 ",
-            "sell_price": "21.65",
-            "buy_price": "21.25"
-          }
-        ]
-      },
-      {
-        "currency_type": "SAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 1",
-            "sell_price": "8.70",
-            "buy_price": "8.45"
-          }
-        ]
-      },
-      {
-        "currency_type": "AED",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 5",
-            "sell_price": "8.90",
-            "buy_price": "8.65"
-          }
-        ]
-      },
-      {
-        "currency_type": "QAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 1",
-            "sell_price": "8.85",
-            "buy_price": "8.55"
-          }
-        ]
-      },
-      {
-        "currency_type": "OMR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50 - 1",
-            "sell_price": "84.60",
-            "buy_price": "83.10"
-          }
-        ]
-      },
-      {
-        "currency_type": "BHD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "20 - 0.25",
-            "sell_price": "86.00",
-            "buy_price": "84.40"
-          }
-        ]
-      },
-      {
-        "currency_type": "VND",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500000 -10000 VND(:1000)",
-            "sell_price": "1.42",
-            "buy_price": "1.35"
-          }
-        ]
-      },
-      {
-        "currency_type": "BND",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 1",
-            "sell_price": "23.60",
-            "buy_price": "23.35"
-          }
-        ]
-      },
-      {
-        "currency_type": "KWD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "20 - 0.25",
-            "sell_price": "106.90",
-            "buy_price": "105.10"
-          }
-        ]
-      },
-      {
-        "currency_type": "ZAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 10",
-            "sell_price": "2.22",
-            "buy_price": "2.12"
-          },
-          {
-            "currency_amount": "200",
-            "sell_price": "2.22",
-            "buy_price": "2.09"
-          }
-        ]
-      },
-      {
-        "currency_type": "IDR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100000 - 1000 IDR(:1000) ",
-            "sell_price": "2.19",
-            "buy_price": "2.06"
-          }
-        ]
-      },
-      {
-        "currency_type": "INR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 5",
-            "sell_price": "0.450",
-            "buy_price": "0.420"
-          },
-          {
-            "currency_amount": "2000",
-            "sell_price": "0.450",
-            "buy_price": "0.415"
-          }
-        ]
-      },
-      {
-        "currency_type": "SCOT",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "42.50",
-            "buy_price": "41.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "RUB",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "5000 - 10",
-            "sell_price": "0.510",
-            "buy_price": "0.465"
-          }
-        ]
-      },
-      {
-        "currency_type": "MOP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "4.10",
-            "buy_price": "3.99"
-          }
-        ]
-      },
-      {
-        "currency_type": "TRY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "200 - 5",
-            "sell_price": "6.00",
-            "buy_price": "5.65"
-          }
-        ]
-      },
-      {
-        "currency_type": "MMK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 500",
-            "sell_price": "0.0217",
-            "buy_price": "0.0198"
-          }
-        ]
-      }
+      [
+        {
+          "currency_amount": "100",
+          "sell_price": "33.03",
+          "buy_price": "32.91",
+          "currency_amount_from": "100",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "33.03",
+          "buy_price": "32.91",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "10 - 20",
+          "sell_price": "32.93",
+          "buy_price": "32.71",
+          "currency_amount_from": "10",
+          "currency_amount_to": "20"
+        },
+        {
+          "currency_amount": "5",
+          "sell_price": "32.93",
+          "buy_price": "32.61",
+          "currency_amount_from": "5",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "1",
+          "sell_price": "32.73",
+          "buy_price": "32.26",
+          "currency_amount_from": "1",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "50",
+          "sell_price": "42.45",
+          "buy_price": "41.90",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20- 5",
+          "sell_price": "42.35",
+          "buy_price": "41.80",
+          "currency_amount_from": "20",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500-100",
+          "sell_price": "37.60",
+          "buy_price": "37.35",
+          "currency_amount_from": "100",
+          "currency_amount_to": "500"
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "37.55",
+          "buy_price": "37.30",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20-5",
+          "sell_price": "37.55",
+          "buy_price": "37.25",
+          "currency_amount_from": "20",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "33.10",
+          "buy_price": "32.80",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "23.35",
+          "buy_price": "23.15",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 1000",
+          "sell_price": "0.2955",
+          "buy_price": "0.2935",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "10000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 50",
+          "sell_price": "7.91",
+          "buy_price": "7.83",
+          "currency_amount_from": "100",
+          "currency_amount_to": "50"
+        },
+        {
+          "currency_amount": "10 - 5",
+          "sell_price": "7.81",
+          "buy_price": "7.63",
+          "currency_amount_from": "10",
+          "currency_amount_to": "5"
+        },
+        {
+          "currency_amount": "2 - 1",
+          "sell_price": "7.81",
+          "buy_price": "7.43",
+          "currency_amount_from": "1",
+          "currency_amount_to": "2"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000",
+          "sell_price": "23.90",
+          "buy_price": "23.70",
+          "currency_amount_from": "1000",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "100 - 2",
+          "sell_price": "23.90",
+          "buy_price": "23.70",
+          "currency_amount_from": "100",
+          "currency_amount_to": "2"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "4.22",
+          "buy_price": "4.17",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "25.20",
+          "buy_price": "25.00",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 50",
+          "sell_price": "5.03",
+          "buy_price": "4.98",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 50",
+          "sell_price": "3.94",
+          "buy_price": "3.89",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 20",
+          "sell_price": "3.61",
+          "buy_price": "3.55",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "2000 - 100",
+          "sell_price": "1.080",
+          "buy_price": "1.050",
+          "currency_amount_from": "100",
+          "currency_amount_to": "2000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "50000 - 5000",
+          "sell_price": "0.0291",
+          "buy_price": "0.0283",
+          "currency_amount_from": "5000",
+          "currency_amount_to": "50000"
+        },
+        {
+          "currency_amount": "1000",
+          "sell_price": "0.0281",
+          "buy_price": "0.0273",
+          "currency_amount_from": "1000",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100",
+          "sell_price": "4.73",
+          "buy_price": "4.65",
+          "currency_amount_from": "100",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "4.73",
+          "buy_price": "4.65",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20 - 10",
+          "sell_price": "4.68",
+          "buy_price": "4.45",
+          "currency_amount_from": "10",
+          "currency_amount_to": "20"
+        },
+        {
+          "currency_amount": "5 - 1",
+          "sell_price": "4.63",
+          "buy_price": "4.13",
+          "currency_amount_from": "1",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 20",
+          "sell_price": "0.610",
+          "buy_price": "0.580",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5 ",
+          "sell_price": "21.55",
+          "buy_price": "21.20",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 1",
+          "sell_price": "8.75",
+          "buy_price": "8.55",
+          "currency_amount_from": "1",
+          "currency_amount_to": "500"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 5",
+          "sell_price": "9.00",
+          "buy_price": "8.75",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 1",
+          "sell_price": "8.90",
+          "buy_price": "8.65",
+          "currency_amount_from": "1",
+          "currency_amount_to": "500"
+        }
+      ],
+      [
+        {
+          "currency_amount": "50 - 1",
+          "sell_price": "85.10",
+          "buy_price": "83.90",
+          "currency_amount_from": "1",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "20 - 0.25",
+          "sell_price": "86.80",
+          "buy_price": "85.25",
+          "currency_amount_from": "0",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500000 -10000 VND(:1000)",
+          "sell_price": "1.42",
+          "buy_price": "1.35",
+          "currency_amount_from": "10000",
+          "currency_amount_to": "500000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 1",
+          "sell_price": "23.80",
+          "buy_price": "23.55",
+          "currency_amount_from": "1",
+          "currency_amount_to": "10000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "20 - 0.25",
+          "sell_price": "107.80",
+          "buy_price": "106.05",
+          "currency_amount_from": "0",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 10",
+          "sell_price": "2.22",
+          "buy_price": "2.13",
+          "currency_amount_from": "10",
+          "currency_amount_to": "100"
+        },
+        {
+          "currency_amount": "200",
+          "sell_price": "2.22",
+          "buy_price": "2.10",
+          "currency_amount_from": "200",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100000 - 1000 IDR(:1000) ",
+          "sell_price": "2.18",
+          "buy_price": "2.05",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "100000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 5",
+          "sell_price": "0.450",
+          "buy_price": "0.420",
+          "currency_amount_from": "5",
+          "currency_amount_to": "500"
+        },
+        {
+          "currency_amount": "2000",
+          "sell_price": "0.450",
+          "buy_price": "0.415",
+          "currency_amount_from": "2000",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "42.30",
+          "buy_price": "41.50",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "5000 - 10",
+          "sell_price": "0.510",
+          "buy_price": "0.465",
+          "currency_amount_from": "10",
+          "currency_amount_to": "5000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "4.10",
+          "buy_price": "4.00",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "200 - 5",
+          "sell_price": "6.10",
+          "buy_price": "5.75",
+          "currency_amount_from": "200",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 500",
+          "sell_price": "0.0217",
+          "buy_price": "0.0198",
+          "currency_amount_from": "10000",
+          "currency_amount_to": "500"
+        }
+      ]
     ]
   },
   {
     "branch_name": "Suvarnabhumi Airport",
     "exchange_currencies": [
-      {
-        "currency_type": "USD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100",
-            "sell_price": "32.72",
-            "buy_price": "32.65"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "32.72",
-            "buy_price": "32.65"
-          },
-          {
-            "currency_amount": "10 - 20",
-            "sell_price": "32.62",
-            "buy_price": "32.48"
-          },
-          {
-            "currency_amount": "5",
-            "sell_price": "32.62",
-            "buy_price": "32.38"
-          },
-          {
-            "currency_amount": "1",
-            "sell_price": "32.42",
-            "buy_price": "32.00"
-          }
-        ]
-      },
-      {
-        "currency_type": "GBP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50",
-            "sell_price": "42.70",
-            "buy_price": "42.50"
-          },
-          {
-            "currency_amount": "20- 5",
-            "sell_price": "42.60",
-            "buy_price": "42.35"
-          }
-        ]
-      },
-      {
-        "currency_type": "EUR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500-100",
-            "sell_price": "37.70",
-            "buy_price": "37.50"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "37.65",
-            "buy_price": "37.45"
-          },
-          {
-            "currency_amount": "20-5",
-            "sell_price": "37.65",
-            "buy_price": "37.40"
-          }
-        ]
-      },
-      {
-        "currency_type": "CHF",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "32.80",
-            "buy_price": "32.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "AUD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "23.25",
-            "buy_price": "23.05"
-          }
-        ]
-      },
-      {
-        "currency_type": "JPY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 1000",
-            "sell_price": "0.2925",
-            "buy_price": "0.2905"
-          }
-        ]
-      },
-      {
-        "currency_type": "MYR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 50",
-            "sell_price": "7.86",
-            "buy_price": "7.80"
-          },
-          {
-            "currency_amount": "10 - 5",
-            "sell_price": "7.76",
-            "buy_price": "7.59"
-          },
-          {
-            "currency_amount": "2 - 1",
-            "sell_price": "7.76",
-            "buy_price": "7.39"
-          }
-        ]
-      },
-      {
-        "currency_type": "SGD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000",
-            "sell_price": "23.75",
-            "buy_price": "23.60"
-          },
-          {
-            "currency_amount": "100 - 2",
-            "sell_price": "23.75",
-            "buy_price": "23.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "HKD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "4.20",
-            "buy_price": "4.16"
-          }
-        ]
-      },
-      {
-        "currency_type": "CAD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "25.05",
-            "buy_price": "24.85"
-          }
-        ]
-      },
-      {
-        "currency_type": "DKK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 50",
-            "sell_price": "5.03",
-            "buy_price": "4.99"
-          }
-        ]
-      },
-      {
-        "currency_type": "NOK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 50",
-            "sell_price": "3.96",
-            "buy_price": "3.92"
-          }
-        ]
-      },
-      {
-        "currency_type": "SEK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 20",
-            "sell_price": "3.62",
-            "buy_price": "3.58"
-          }
-        ]
-      },
-      {
-        "currency_type": "TWD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "2000 - 100",
-            "sell_price": "1.075",
-            "buy_price": "1.060"
-          }
-        ]
-      },
-      {
-        "currency_type": "KRW",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50000 - 5000",
-            "sell_price": "0.0292",
-            "buy_price": "0.0289"
-          },
-          {
-            "currency_amount": "1000",
-            "sell_price": "0.0282",
-            "buy_price": "0.0279"
-          }
-        ]
-      },
-      {
-        "currency_type": "CNY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100",
-            "sell_price": "4.71",
-            "buy_price": "4.68"
-          },
-          {
-            "currency_amount": "50",
-            "sell_price": "4.71",
-            "buy_price": "4.68"
-          },
-          {
-            "currency_amount": "20 - 10",
-            "sell_price": "4.66",
-            "buy_price": "4.49"
-          },
-          {
-            "currency_amount": "5 - 1",
-            "sell_price": "4.61",
-            "buy_price": "4.19"
-          }
-        ]
-      },
-      {
-        "currency_type": "PHP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 20",
-            "sell_price": "0.610",
-            "buy_price": "0.595"
-          }
-        ]
-      },
-      {
-        "currency_type": "NZD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5 ",
-            "sell_price": "21.65",
-            "buy_price": "21.40"
-          }
-        ]
-      },
-      {
-        "currency_type": "SAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 1",
-            "sell_price": "8.70",
-            "buy_price": "8.55"
-          }
-        ]
-      },
-      {
-        "currency_type": "AED",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 5",
-            "sell_price": "8.90",
-            "buy_price": "8.75"
-          }
-        ]
-      },
-      {
-        "currency_type": "QAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 1",
-            "sell_price": "8.85",
-            "buy_price": "8.55"
-          }
-        ]
-      },
-      {
-        "currency_type": "OMR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "50 - 1",
-            "sell_price": "84.60",
-            "buy_price": "83.45"
-          }
-        ]
-      },
-      {
-        "currency_type": "BHD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "20 - 0.25",
-            "sell_price": "86.00",
-            "buy_price": "84.90"
-          }
-        ]
-      },
-      {
-        "currency_type": "VND",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500000 -10000 VND(:1000)",
-            "sell_price": "1.42",
-            "buy_price": "1.39"
-          }
-        ]
-      },
-      {
-        "currency_type": "BND",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 1",
-            "sell_price": "23.60",
-            "buy_price": "23.45"
-          }
-        ]
-      },
-      {
-        "currency_type": "KWD",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "20 - 0.25",
-            "sell_price": "106.90",
-            "buy_price": "105.60"
-          }
-        ]
-      },
-      {
-        "currency_type": "ZAR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 10",
-            "sell_price": "2.22",
-            "buy_price": "2.15"
-          },
-          {
-            "currency_amount": "200",
-            "sell_price": "2.22",
-            "buy_price": "2.11"
-          }
-        ]
-      },
-      {
-        "currency_type": "IDR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100000 - 1000 IDR(:1000) ",
-            "sell_price": "2.19",
-            "buy_price": "2.15"
-          }
-        ]
-      },
-      {
-        "currency_type": "INR",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "500 - 5",
-            "sell_price": "0.450",
-            "buy_price": "0.435"
-          },
-          {
-            "currency_amount": "2000",
-            "sell_price": "0.450",
-            "buy_price": "0.430"
-          }
-        ]
-      },
-      {
-        "currency_type": "SCOT",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "100 - 5",
-            "sell_price": "42.50",
-            "buy_price": "41.95"
-          }
-        ]
-      },
-      {
-        "currency_type": "RUB",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "5000 - 10",
-            "sell_price": "0.510",
-            "buy_price": "0.490"
-          }
-        ]
-      },
-      {
-        "currency_type": "MOP",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "1000 - 10",
-            "sell_price": "4.10",
-            "buy_price": "4.05"
-          }
-        ]
-      },
-      {
-        "currency_type": "TRY",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "200 - 5",
-            "sell_price": "6.00",
-            "buy_price": "5.70"
-          }
-        ]
-      },
-      {
-        "currency_type": "MMK",
-        "exchange_currency_amount": [
-          {
-            "currency_amount": "10000 - 500",
-            "sell_price": "0.0217",
-            "buy_price": "0.0199"
-          }
-        ]
-      }
+      [
+        {
+          "currency_amount": "100",
+          "sell_price": "33.03",
+          "buy_price": "32.93",
+          "currency_amount_from": "100",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "33.03",
+          "buy_price": "32.93",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "10 - 20",
+          "sell_price": "32.93",
+          "buy_price": "32.76",
+          "currency_amount_from": "10",
+          "currency_amount_to": "20"
+        },
+        {
+          "currency_amount": "5",
+          "sell_price": "32.93",
+          "buy_price": "32.66",
+          "currency_amount_from": "5",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "1",
+          "sell_price": "32.73",
+          "buy_price": "32.28",
+          "currency_amount_from": "1",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "50",
+          "sell_price": "42.45",
+          "buy_price": "42.00",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20- 5",
+          "sell_price": "42.35",
+          "buy_price": "41.85",
+          "currency_amount_from": "20",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500-100",
+          "sell_price": "37.60",
+          "buy_price": "37.40",
+          "currency_amount_from": "100",
+          "currency_amount_to": "500"
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "37.55",
+          "buy_price": "37.35",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20-5",
+          "sell_price": "37.55",
+          "buy_price": "37.30",
+          "currency_amount_from": "20",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "33.10",
+          "buy_price": "32.90",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "23.35",
+          "buy_price": "23.15",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 1000",
+          "sell_price": "0.2955",
+          "buy_price": "0.2935",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "10000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 50",
+          "sell_price": "7.91",
+          "buy_price": "7.85",
+          "currency_amount_from": "100",
+          "currency_amount_to": "50"
+        },
+        {
+          "currency_amount": "10 - 5",
+          "sell_price": "7.81",
+          "buy_price": "7.64",
+          "currency_amount_from": "10",
+          "currency_amount_to": "5"
+        },
+        {
+          "currency_amount": "2 - 1",
+          "sell_price": "7.81",
+          "buy_price": "7.44",
+          "currency_amount_from": "1",
+          "currency_amount_to": "2"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000",
+          "sell_price": "23.90",
+          "buy_price": "23.75",
+          "currency_amount_from": "1000",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "100 - 2",
+          "sell_price": "23.90",
+          "buy_price": "23.75",
+          "currency_amount_from": "100",
+          "currency_amount_to": "2"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "4.22",
+          "buy_price": "4.19",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "25.20",
+          "buy_price": "25.05",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 50",
+          "sell_price": "5.03",
+          "buy_price": "4.99",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 50",
+          "sell_price": "3.94",
+          "buy_price": "3.90",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 20",
+          "sell_price": "3.61",
+          "buy_price": "3.56",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "2000 - 100",
+          "sell_price": "1.080",
+          "buy_price": "1.065",
+          "currency_amount_from": "100",
+          "currency_amount_to": "2000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "50000 - 5000",
+          "sell_price": "0.0291",
+          "buy_price": "0.0288",
+          "currency_amount_from": "5000",
+          "currency_amount_to": "50000"
+        },
+        {
+          "currency_amount": "1000",
+          "sell_price": "0.0281",
+          "buy_price": "0.0278",
+          "currency_amount_from": "1000",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100",
+          "sell_price": "4.73",
+          "buy_price": "4.70",
+          "currency_amount_from": "100",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "50",
+          "sell_price": "4.73",
+          "buy_price": "4.70",
+          "currency_amount_from": "50",
+          "currency_amount_to": null
+        },
+        {
+          "currency_amount": "20 - 10",
+          "sell_price": "4.68",
+          "buy_price": "4.51",
+          "currency_amount_from": "10",
+          "currency_amount_to": "20"
+        },
+        {
+          "currency_amount": "5 - 1",
+          "sell_price": "4.63",
+          "buy_price": "4.21",
+          "currency_amount_from": "1",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 20",
+          "sell_price": "0.610",
+          "buy_price": "0.595",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5 ",
+          "sell_price": "21.55",
+          "buy_price": "21.35",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 1",
+          "sell_price": "8.75",
+          "buy_price": "8.65",
+          "currency_amount_from": "1",
+          "currency_amount_to": "500"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 5",
+          "sell_price": "9.00",
+          "buy_price": "8.85",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 1",
+          "sell_price": "8.90",
+          "buy_price": "8.65",
+          "currency_amount_from": "1",
+          "currency_amount_to": "500"
+        }
+      ],
+      [
+        {
+          "currency_amount": "50 - 1",
+          "sell_price": "85.10",
+          "buy_price": "84.25",
+          "currency_amount_from": "1",
+          "currency_amount_to": "50"
+        }
+      ],
+      [
+        {
+          "currency_amount": "20 - 0.25",
+          "sell_price": "86.80",
+          "buy_price": "85.75",
+          "currency_amount_from": "0",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500000 -10000 VND(:1000)",
+          "sell_price": "1.42",
+          "buy_price": "1.39",
+          "currency_amount_from": "10000",
+          "currency_amount_to": "500000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 1",
+          "sell_price": "23.80",
+          "buy_price": "23.65",
+          "currency_amount_from": "1",
+          "currency_amount_to": "10000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "20 - 0.25",
+          "sell_price": "107.80",
+          "buy_price": "106.55",
+          "currency_amount_from": "0",
+          "currency_amount_to": "20"
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 10",
+          "sell_price": "2.22",
+          "buy_price": "2.16",
+          "currency_amount_from": "10",
+          "currency_amount_to": "100"
+        },
+        {
+          "currency_amount": "200",
+          "sell_price": "2.22",
+          "buy_price": "2.12",
+          "currency_amount_from": "200",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100000 - 1000 IDR(:1000) ",
+          "sell_price": "2.18",
+          "buy_price": "2.14",
+          "currency_amount_from": "1000",
+          "currency_amount_to": "100000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "500 - 5",
+          "sell_price": "0.450",
+          "buy_price": "0.435",
+          "currency_amount_from": "5",
+          "currency_amount_to": "500"
+        },
+        {
+          "currency_amount": "2000",
+          "sell_price": "0.450",
+          "buy_price": "0.430",
+          "currency_amount_from": "2000",
+          "currency_amount_to": null
+        }
+      ],
+      [
+        {
+          "currency_amount": "100 - 5",
+          "sell_price": "42.30",
+          "buy_price": "41.85",
+          "currency_amount_from": "100",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "5000 - 10",
+          "sell_price": "0.510",
+          "buy_price": "0.490",
+          "currency_amount_from": "10",
+          "currency_amount_to": "5000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "1000 - 10",
+          "sell_price": "4.10",
+          "buy_price": "4.06",
+          "currency_amount_from": "10",
+          "currency_amount_to": "1000"
+        }
+      ],
+      [
+        {
+          "currency_amount": "200 - 5",
+          "sell_price": "6.10",
+          "buy_price": "5.80",
+          "currency_amount_from": "200",
+          "currency_amount_to": "5"
+        }
+      ],
+      [
+        {
+          "currency_amount": "10000 - 500",
+          "sell_price": "0.0217",
+          "buy_price": "0.0199",
+          "currency_amount_from": "10000",
+          "currency_amount_to": "500"
+        }
+      ]
     ]
   }
 ]

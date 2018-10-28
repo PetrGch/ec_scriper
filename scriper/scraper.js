@@ -50,10 +50,10 @@ async function parseBySelectorOption(page, selectorOption) {
 }
 
 async function parseOption(page) {
-  return await page.evaluate(() => {
+  const currencies = await page.evaluate(() => {
     let items = document.querySelectorAll('#table-rate tbody');
 
-    return [...items]
+    return items ? [...items]
       .map(item => {
         const currencyType = item.querySelector('.country span');
         const rate = {};
@@ -69,22 +69,62 @@ async function parseOption(page) {
             const currencyAmount = item.querySelector('span[ng-bind*="denom"]');
             const currencyBuy = item.querySelector('span[ng-bind*="cBuying"]');
             const currencySell = item.querySelector('span[ng-bind*="cSelling"]');
-            // amount.currency_amount = currencyAmount.innerHTML;
-            // amount.sell_price = currencySell.innerHTML;
-            // amount.buy_price = currencyBuy.innerHTML;
+
             rate.exchange_currency_amounts.push({
               currency_amount: currencyAmount.innerHTML,
               sell_price: currencySell.innerHTML,
               buy_price: currencyBuy.innerHTML
             });
-            // rate.exchange_currencies[currencyAmount.innerHTML] = {};
-            // rate.exchange_currencies[currencyAmount.innerHTML].currencyBuy = currencyBuy ? currencyBuy.innerHTML : '';
-            // rate.exchange_currencies[currencyAmount.innerHTML].currencySell = currencySell ? currencySell.innerHTML : '';
           });
 
           return rate;
         }
       })
-      .filter(item => !!item);
+      .filter(item => !!item) : [];
   });
+
+  return currencies.map(currency => {
+    const amounts = currency.exchange_currency_amounts.map(amount => {
+      const currencyAmountRange = transfromValueToCurrencyAmounts(amount.currency_amount.trim());
+      return Object.assign({}, amount, {
+        currency_amount_from: currencyAmountRange.from,
+        currency_amount_to: currencyAmountRange.to,
+      })
+    });
+
+    return Object.assign({}, currency, { exchange_currency_amounts: amounts })
+  });
+}
+
+function transfromValueToCurrencyAmounts(value) {
+  const number = /^[0-9]*/m;
+  const numberWithDash = /[0-9]+\s{0,4}[-]\s{0,4}[0-9]+/m;
+
+  const result = {
+    from: 1,
+    to: null
+  };
+
+  if (number.test(value) && !numberWithDash.test(value)) {
+    result.from = value;
+    return result;
+  }
+
+  if (numberWithDash.test(value)) {
+    const splitedValues = value.split('-');
+    const filrstValue = splitedValues[0].trim().match(number)[0];
+    const lastValue = splitedValues[1].trim().match(number)[0];
+
+    if (filrstValue <= lastValue) {
+      result.from = filrstValue;
+      result.to = lastValue;
+      return result;
+    }
+    result.from = lastValue;
+    result.to = filrstValue;
+
+    return result;
+  }
+
+  return result
 }

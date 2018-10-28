@@ -6,6 +6,8 @@ export function createManyCurrenciesAmount(currencyId, currenciesAmount) {
     const mappedCurrency = currenciesAmount.map(amount => {
       return {
         currency_amount: amount.currency_amount || 1,
+        currency_amount_from: amount.currency_amount_from || 1,
+        currency_amount_to: amount.currency_amount_to,
         sell_price: amount.sell_price,
         buy_price: amount.buy_price,
         exchange_currency_id: currencyId
@@ -93,7 +95,6 @@ function filterAmounts(foundCurrency, payloadCurrency) {
 
 async function updateAllAmounts(amounts) {
   await amounts.forEach(async ({newAmount, oldAmount}) => {
-    console.log(getFixedNumber(newAmount.sell_price, 3) !== getFixedNumber(oldAmount.sell_price, 3))
     if ((getFixedNumber(newAmount.sell_price, 3) !== getFixedNumber(oldAmount.sell_price, 3))
       || (getFixedNumber(newAmount.buy_price, 3) !== getFixedNumber(oldAmount.buy_price, 3))) {
       await models.ExchangeCurrencyAmount.update(
