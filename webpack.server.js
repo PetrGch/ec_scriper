@@ -6,7 +6,7 @@ module.exports = {
 
   output: {
     path: path.resolve('server-build'),
-    filename: 'serverBundle.js'
+    filename: 'scraperBundle.js'
   },
 
   target: 'node',
