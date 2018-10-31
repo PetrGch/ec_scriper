@@ -7,14 +7,12 @@ module.exports = {
 
   output: {
     path: path.resolve('server-build'),
-    filename: 'index.js'
+    filename: 'serverBundle.js'
   },
 
   target: 'node',
 
   externals: [nodeExternals()],
-
-  watch: true,
 
   module: {
     rules: [
@@ -23,13 +21,5 @@ module.exports = {
         use: 'babel-loader'
       }
     ]
-  },
-
-  plugins: [
-    // new NodemonPlugin({
-    //   watch: path.resolve('./server/index.js'),
-    //   verbose: true,
-    // }),
-  ],
-
+  }
 };
