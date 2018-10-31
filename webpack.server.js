@@ -1,10 +1,9 @@
 const path = require('path');
-var nodeExternals = require('webpack-node-externals');
+const nodeExternals = require('webpack-node-externals');
 const NodemonPlugin = require( 'nodemon-webpack-plugin' );
 
 module.exports = {
   entry: './server/index.js',
-  // entry: './test/test.js',
 
   output: {
     path: path.resolve('server-build'),
@@ -26,11 +25,11 @@ module.exports = {
     ]
   },
 
-  // plugins: [
-  //   new NodemonPlugin({
-  //     watch: path.resolve('./server/index.js'),
-  //     verbose: true,
-  //   }),
-  // ],
+  plugins: [
+    // new NodemonPlugin({
+    //   watch: path.resolve('./server/index.js'),
+    //   verbose: true,
+    // }),
+  ],
 
 };
