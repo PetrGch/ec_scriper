@@ -5,16 +5,16 @@ import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
 
 const exchangeCurrencyController = express.Router({});
 
+// get all currencies
 exchangeCurrencyController.get('/', (req, res) => {
   models.ExchangeCompany.findAll()
-    .then(currency => {
-      console.log(JSON.stringify(currency));
-      res.sendStatus(200);
+    .then(currencies => {
+      res.json(currencies);
     })
     .catch(ex => res.send(ex));
 });
 
-
+// create new currency
 exchangeCurrencyController.post('/', (req, res) => {
   const newExCurrency = req.body;
 
@@ -29,6 +29,7 @@ exchangeCurrencyController.post('/', (req, res) => {
     .catch(ex => res.send(ex));
 });
 
+// update currencies
 exchangeCurrencyController.put('/', (req, res) => {
   const branchesPayload = req.body;
   updateCurrenciesAmount(branchesPayload)

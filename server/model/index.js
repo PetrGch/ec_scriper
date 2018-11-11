@@ -1,7 +1,9 @@
+import properties from "../properties";
 import {defineExchangeCurrency} from "./ExchangeCurrency";
 import {defineExchangeCompany} from "./ExchangeCompany";
 import {defineExchangeCurrencyAmount} from "./ExchangeCurrencyAmount";
-import properties from "../properties";
+import {defineExchangeCompanyWorkingTime} from "./ExchangeCompanyWorkingTime";
+import {defineExchangeCompanyDetail} from "./ExchangeCompanyDetail";
 
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
@@ -23,6 +25,8 @@ const sequelize = new Sequelize(
 
 const models = {
   ExchangeCompany: defineExchangeCompany(sequelize, Sequelize.DataTypes),
+  ExchangeCompanyWorkingTime: defineExchangeCompanyWorkingTime(sequelize, Sequelize.DataTypes),
+  ExchangeCompanyDetail: defineExchangeCompanyDetail(sequelize, Sequelize.DataTypes),
   ExchangeCurrency: defineExchangeCurrency(sequelize, Sequelize.DataTypes),
   ExchangeCurrencyAmount: defineExchangeCurrencyAmount(sequelize, Sequelize.DataTypes)
 };

@@ -15,7 +15,17 @@ export function getAllExchangeCompanies() {
             attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
           }
         ]
-      }
+      },
+      {
+        model: models.ExchangeCompanyDetail,
+        attributes: ['phone', 'website', 'email'],
+      },
+      {
+        model: models.ExchangeCompanyWorkingTime,
+        attributes: [
+          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
+          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
+      },
     ]
   });
 }
@@ -46,8 +56,24 @@ export function findCompanyById(id) {
             attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
           }
         ]
-      }
+      },
+      {
+        model: models.ExchangeCompanyDetail,
+        attributes: ['phone', 'website', 'email'],
+      },
+      {
+        model: models.ExchangeCompanyWorkingTime,
+        attributes: [
+          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
+          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
+      },
     ]
+  });
+}
+
+export function isCompanyExist(id) {
+  return models.ExchangeCompany.findOne({
+    where: {id: id},
   });
 }
 
@@ -64,7 +90,17 @@ export function findCompanyByBranchName(branchName) {
             attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
           }
         ]
-      }
+      },
+      {
+        model: models.ExchangeCompanyDetail,
+        attributes: ['phone', 'website', 'email'],
+      },
+      {
+        model: models.ExchangeCompanyWorkingTime,
+        attributes: [
+          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
+          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
+      },
     ]
   });
 }
@@ -82,7 +118,17 @@ export function findCompanyByName(companyName) {
             attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
           }
         ]
-      }
+      },
+      {
+        model: models.ExchangeCompanyDetail,
+        attributes: ['phone', 'website', 'email'],
+      },
+      {
+        model: models.ExchangeCompanyWorkingTime,
+        attributes: [
+          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
+          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
+      },
     ]
   });
 }

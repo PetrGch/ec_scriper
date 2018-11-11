@@ -1,5 +1,3 @@
-'use strict';
-
 export function defineExchangeCompany(sequelize, DataTypes) {
   const ExchangeCompany = sequelize.define('exchange_company', {
     uuid: {
@@ -38,6 +36,8 @@ export function defineExchangeCompany(sequelize, DataTypes) {
 
   ExchangeCompany.associate = function (models) {
     ExchangeCompany.hasMany(models.ExchangeCurrency);
+    ExchangeCompany.hasOne(models.ExchangeCompanyDetail);
+    ExchangeCompany.hasOne(models.ExchangeCompanyWorkingTime);
   };
 
   return ExchangeCompany;

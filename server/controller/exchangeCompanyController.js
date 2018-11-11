@@ -11,6 +11,7 @@ import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
 
 const exchangeCompanyController = express.Router({});
 
+// get all companies
 exchangeCompanyController.get('/', (req, res) => {
   getAllExchangeCompanies()
     .then(company => {
@@ -19,6 +20,7 @@ exchangeCompanyController.get('/', (req, res) => {
     .catch(ex => res.send(ex));
 });
 
+// run scraper
 exchangeCompanyController.put('/scraper', (req, res) => {
   scraper()
     .then(branchesPayload => {
@@ -38,6 +40,7 @@ exchangeCompanyController.put('/scraper', (req, res) => {
   })
 });
 
+// get company by id
 exchangeCompanyController.get('/:id', (req, res) => {
   const companyId = req.params.id;
   if (companyId) {
@@ -51,6 +54,7 @@ exchangeCompanyController.get('/:id', (req, res) => {
   }
 });
 
+// get company by branch name
 exchangeCompanyController.get('/branch/:name', (req, res) => {
   if (req.params.name) {
     findCompanyByBranchName(req.params.name)
@@ -65,6 +69,7 @@ exchangeCompanyController.get('/branch/:name', (req, res) => {
   }
 });
 
+// get company by name
 exchangeCompanyController.get('/company/:name', (req, res) => {
   if (req.params.name) {
     findCompanyByName(req.params.name)
@@ -79,6 +84,7 @@ exchangeCompanyController.get('/company/:name', (req, res) => {
   }
 });
 
+// create new company
 exchangeCompanyController.post('/', (req, res) => {
   const companyPayload = req.body;
   postExchangeCompany(companyPayload)
@@ -90,6 +96,7 @@ exchangeCompanyController.post('/', (req, res) => {
     });
 });
 
+// update company by id
 exchangeCompanyController.put('/:id', async (req, res) => {
   const companyId = req.params.id;
   const companyPayload = req.body;

@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', index);
 
 models.sequelize.sync().then(function () {
-  app.listen(properties.port, () => {
-    console.log(`😎 Server is listening on port ${properties.port}`);
+  app.listen(properties.PORT, () => {
+    console.log(`😎 Server is listening on port ${properties.PORT}`);
   });
 });

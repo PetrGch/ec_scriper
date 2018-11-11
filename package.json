@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:build-server": "webpack --config webpack.server.js --mode=development --watch",
-    "dev:start": "nodemon --delay 5 ./server-build/index.js",
+    "dev:start": "nodemon --delay 5 ./server-build/scraperBundle.js",
     "prod": "npm-run-all prod:*",
     "prod:stop": "pm2 stop scraperBundle",
     "prod:build-server": "webpack --config webpack.server.js --mode=production",
@@ -14,8 +14,7 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "test/*",
-      "docs/*"
+      "test/*"
     ],
     "delay": "5000"
   },
