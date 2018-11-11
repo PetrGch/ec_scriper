@@ -114,17 +114,17 @@ function transfromValueToCurrencyAmounts(value) {
   }
 
   if (numberWithDash.test(value)) {
-    const splitedValues = value.split('-');
-    const filrstValue = splitedValues[0].trim().match(number)[0];
-    const lastValue = splitedValues[1].trim().match(number)[0];
+    const splitValues = value.split('-');
+    const firstValue = splitValues[0].trim().match(number)[0];
+    const lastValue = splitValues[1].trim().match(number)[0];
 
-    if (filrstValue <= lastValue) {
-      result.from = filrstValue;
+    if (parseInt(firstValue) <= parseInt(lastValue)) {
+      result.from = firstValue;
       result.to = lastValue;
       return result;
     }
     result.from = lastValue;
-    result.to = filrstValue;
+    result.to = firstValue;
 
     return result;
   }
