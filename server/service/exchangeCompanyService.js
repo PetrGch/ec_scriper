@@ -37,7 +37,8 @@ export function postExchangeCompany(companyPayload) {
     company_name: companyPayload.company_name,
     lat: companyPayload.lat,
     lng: companyPayload.lng,
-    is_central_bank: companyPayload.is_central_bank
+    is_central_bank: companyPayload.is_central_bank,
+    address: companyPayload.address
   }).then(company => {
     return createManyCurrencies(company.id, companyPayload.exchange_currencies);
   });
@@ -140,5 +141,6 @@ export function updateCompany(company, companyPayload) {
     lat: companyPayload.lat || company.lat,
     lng: companyPayload.lng || company.lng,
     is_central_bank: companyPayload.is_central_bank || company.is_central_bank,
+    address: companyPayload.address || company.address
   }).catch(ex => console.error(ex));
 }

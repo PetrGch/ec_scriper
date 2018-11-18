@@ -24,6 +24,11 @@ export function defineExchangeCompany(sequelize, DataTypes) {
     },
     is_central_bank: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: true
+    },
+    address: {
+      type: DataTypes.STRING,
       allowNull: true
     }
   }, {
