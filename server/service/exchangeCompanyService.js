@@ -144,3 +144,7 @@ export function updateCompany(company, companyPayload) {
     address: companyPayload.address || company.address
   }).catch(ex => console.error(ex));
 }
+
+export function deleteCompanyById(company) {
+  return company.destroy();
+}

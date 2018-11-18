@@ -1,6 +1,7 @@
 import express from 'express';
 
 import {
+  deleteCompanyById,
   findCompanyByBranchName,
   findCompanyById, findCompanyByName,
   getAllExchangeCompanies,
@@ -105,10 +106,46 @@ exchangeCompanyController.put('/:id', async (req, res) => {
       .then(company => {
         return updateCompany(company, companyPayload);
       })
+      .then(() => {
+        res.sendStatus(200);
+      })
       .catch(ex => console.error(ex));
-    res.sendStatus(200);
+  } else {
+    res.sendStatus(500);
   }
-  res.sendStatus(500);
+});
+
+// delete company by id
+exchangeCompanyController.delete('/:id', async (req, res) => {
+  const companyId = req.params.id;
+  if (companyId) {
+    findCompanyById(companyId)
+      .then(company => {
+        return deleteCompanyById(company);
+      })
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(ex => console.error(ex));
+  } else {
+    res.sendStatus(500);
+  }
+});
+
+// delete company by branch name
+exchangeCompanyController.delete('/branch/:name', async (req, res) => {
+  if (req.params.name) {
+    findCompanyByBranchName(req.params.name)
+      .then(company => {
+        return deleteCompanyById(company);
+      })
+      .then(() => {
+        res.sendStatus(200);
+      })
+      .catch(ex => console.error(ex));
+  } else {
+    res.sendStatus(500);
+  }
 });
 
 export default exchangeCompanyController;
