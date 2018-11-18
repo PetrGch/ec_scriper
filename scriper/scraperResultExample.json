@@ -1,0 +1,19 @@
+[
+  {
+    "branch_name": "Unique branch name",
+    "exchange_currencies": [
+      {
+        "currency_type": "Unique currency type",
+        "exchange_currency_amounts": [
+          {
+            "currency_amount_from": "Currency amount from",
+            "currency_amount_to": "Currency amount to",
+            "currency_amount": "Currency amount",
+            "sell_price": "Sell price",
+            "buy_price": "Buy price"
+          }
+        ]
+      }
+    ]
+  }
+]

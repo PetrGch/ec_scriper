@@ -9,6 +9,7 @@ import {
 } from "../service/exchangeCompanyService";
 import {scraper} from "../../scriper/scraper";
 import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
+import {scraper_2} from "../../scriper/scraper_2";
 
 const exchangeCompanyController = express.Router({});
 
@@ -23,9 +24,13 @@ exchangeCompanyController.get('/', (req, res) => {
 
 // run scraper
 exchangeCompanyController.put('/scraper', (req, res) => {
-  scraper()
-    .then(branchesPayload => {
-      updateCurrenciesAmount(branchesPayload)
+  Promise.all([scraper_2, scraper])
+    .then(responses => {
+      const filteredResponses = responses.filter(response => response && Array.isArray(response));
+      const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
+        return responseAcc.concat(response);
+      }, []);
+      updateCurrenciesAmount(concatedResponses)
         .then((companies) => {
           res.json(companies)
         }, (ex) => {
@@ -34,11 +39,9 @@ exchangeCompanyController.put('/scraper', (req, res) => {
         .catch((ex) => {
           res.send(ex);
         })
-    }, ex => {
-      throw new Error(ex)
-    }).catch(ex => {
-      res.send(ex);
-  })
+    }, () => {
+      res.sendStatus(500)
+    });
 });
 
 // get company by id
