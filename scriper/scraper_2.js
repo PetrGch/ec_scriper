@@ -49,7 +49,7 @@ export function scraper_2() {
         }
       });
 
-      return response;
+      return [response];
     })
     .catch(function (err) {
       console.log(err);

@@ -49,7 +49,7 @@ function scraper_2() {
         }
       });
 
-      return response;
+      return [response];
     })
     .catch(function (err) {
       console.log(err);
@@ -65,11 +65,15 @@ function scraper_2() {
 //   console.log(ex);
 // });
 
-// Promise.all([scraper(), scraper_2()]).then((response) => {
-//   fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
-//     if (err) throw err;
-//     console.log('Data written to file');
-//   });
-// }, (ex) => {
-//   console.log(ex);
-// });
+Promise.all([scraper_2()]).then((responses) => {
+  const filteredResponses = responses.filter(response => response && Array.isArray(response));
+  const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
+    return responseAcc.concat(response);
+  }, []);
+  fs.writeFile('student-3.json', JSON.stringify(concatedResponses), (err) => {
+    if (err) throw err;
+    console.log('Data written to file');
+  });
+}, (ex) => {
+  console.log(ex);
+});
