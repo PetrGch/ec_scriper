@@ -38,7 +38,8 @@ export function postExchangeCompany(companyPayload) {
     lat: companyPayload.lat,
     lng: companyPayload.lng,
     is_central_bank: companyPayload.is_central_bank,
-    address: companyPayload.address
+    address: companyPayload.address,
+    google_map_url: companyPayload.google_map_url
   }).then(company => {
     return createManyCurrencies(company.id, companyPayload.exchange_currencies);
   });
@@ -141,7 +142,8 @@ export function updateCompany(company, companyPayload) {
     lat: companyPayload.lat || company.lat,
     lng: companyPayload.lng || company.lng,
     is_central_bank: companyPayload.is_central_bank || company.is_central_bank,
-    address: companyPayload.address || company.address
+    address: companyPayload.address || company.address,
+    google_map_url: companyPayload.google_map_url || company.google_map_url
   }).catch(ex => console.error(ex));
 }
 

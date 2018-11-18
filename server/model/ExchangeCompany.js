@@ -30,7 +30,12 @@ export function defineExchangeCompany(sequelize, DataTypes) {
     address: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    google_map_url: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
+
   }, {
     underscored: true,
     tableName: 'exchange_company',
