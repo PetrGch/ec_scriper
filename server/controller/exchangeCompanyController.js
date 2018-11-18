@@ -24,7 +24,7 @@ exchangeCompanyController.get('/', (req, res) => {
 
 // run scraper
 exchangeCompanyController.put('/scraper', (req, res) => {
-  Promise.all([scraper_2, scraper])
+  Promise.all([scraper_2(), scraper()])
     .then(responses => {
       const filteredResponses = responses.filter(response => response && Array.isArray(response));
       const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
