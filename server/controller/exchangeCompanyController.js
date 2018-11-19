@@ -25,7 +25,7 @@ exchangeCompanyController.get('/', (req, res) => {
 });
 
 // run superRichThailand
-exchangeCompanyController.put('/superRichThailand', async (req, res) => {
+exchangeCompanyController.put('/scraper', async (req, res) => {
   Promise.all([centralBankOfThailand(), superRichThailand(), siaMoneyExchange()])
     .then(responses => {
       const filteredResponses = responses.filter(response => response && Array.isArray(response));
