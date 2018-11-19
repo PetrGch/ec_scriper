@@ -8,7 +8,7 @@ const options = {
   }
 };
 
-export function siaMoneyExchange() {
+export async function siaMoneyExchange() {
   return request(options)
     .then(($) => {
       const response = {
