@@ -12,6 +12,7 @@ import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
 import {centralBankOfThailand} from "../../scriper/centralBankOfThailand";
 import {scraperIndex} from "../../scriper/scraperIndex";
 import {siaMoneyExchange} from "../../scriper/SIAMoneyExchange";
+import controller from "./index";
 
 const exchangeCompanyController = express.Router({});
 
@@ -32,6 +33,7 @@ exchangeCompanyController.put('/scraper', async (req, res) => {
       const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
         return responseAcc.concat(response);
       }, []);
+      console.log(concatedResponses)
       updateCurrenciesAmount(concatedResponses)
         .then((companies) => {
           res.json(companies)
