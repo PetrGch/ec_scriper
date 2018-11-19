@@ -33,10 +33,10 @@ exchangeCompanyController.put('/scraper', async (req, res) => {
       const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
         return responseAcc.concat(response);
       }, []);
-      console.log(concatedResponses)
+
       updateCurrenciesAmount(concatedResponses)
-        .then((companies) => {
-          res.json(companies)
+        .then(() => {
+          res.json(concatedResponses)
         }, (ex) => {
           throw new Error(ex);
         })
