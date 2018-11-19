@@ -7,4 +7,9 @@ export const currencyType = [
   'QAR', 'OMR', 'BHD', 'VND',
   'BND', 'KWD', 'ZAR', 'IDR',
   'INR', 'SCOT', 'RUB', 'MOP',
-  'TRY', 'MMK'];
+  'TRY', 'MMK', 'PKR', 'HUF',
+  'ILS', 'PGK', 'NPR', 'MVR',
+  'JOD', 'IQD', 'LKR', 'PLN',
+  'EGP', 'LAK', 'KES', 'KHR',
+  'CZK', 'BDT', 'MXN'
+];

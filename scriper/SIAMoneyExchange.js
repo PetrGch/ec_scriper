@@ -1,6 +1,5 @@
-import request from 'request-promise';
-import cheerio from 'cheerio';
-import fs from 'fs';
+import request from "request-promise";
+import cheerio from "cheerio";
 
 const options = {
   uri: 'http://www.sia-moneyexchange.com/en/rate.php',
@@ -9,7 +8,7 @@ const options = {
   }
 };
 
-function scraper_2() {
+export function siaMoneyExchange() {
   return request(options)
     .then(($) => {
       const response = {
@@ -101,25 +100,3 @@ function scraper_2() {
       console.log(err);
     });
 }
-
-scraper_2().then((response) => {
-  fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
-    if (err) throw err;
-    console.log('Data written to file');
-  });
-}, (ex) => {
-  console.log(ex);
-});
-
-// Promise.all([centralBankOfThailand()]).then((responses) => {
-//   const filteredResponses = responses.filter(response => response && Array.isArray(response));
-//   const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
-//     return responseAcc.concat(response);
-//   }, []);
-//   fs.writeFile('student-3.json', JSON.stringify(concatedResponses), (err) => {
-//     if (err) throw err;
-//     console.log('Data written to file');
-//   });
-// }, (ex) => {
-//   console.log(ex);
-// });

@@ -1,7 +1,7 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
 import fs from 'fs';
-import {scraper} from "../scriper/scraper";
+import {superRichThailand} from "./superRichThailand";
 
 const options = {
   uri: 'https://www.bot.or.th/English/Statistics/FinancialMarkets/ExchangeRate/_layouts/Application/ExchangeRate/ExchangeRate.aspx',
@@ -10,7 +10,7 @@ const options = {
   }
 };
 
-export function scraper_2() {
+export function centralBankOfThailand() {
   return request(options)
     .then(($) => {
       const response = {
