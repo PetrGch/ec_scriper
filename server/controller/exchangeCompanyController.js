@@ -36,7 +36,7 @@ exchangeCompanyController.put('/scraper', async (req, res) => {
 
       updateCurrenciesAmount(concatedResponses)
         .then(() => {
-          res.json(concatedResponses)
+          res.sendStatus(200);
         }, (ex) => {
           throw new Error(ex);
         })
