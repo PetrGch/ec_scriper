@@ -71,12 +71,8 @@ export function updateCurrenciesAmount(branchesPayload) {
 
 async function findAllCurrenciesByBranchName(branchesPayload) {
   if (branchesPayload && branchesPayload.length !== 0) {
-    for (let branch of branchesPayload) {
+    branchesPayload.forEach(async branch => {
       console.log(branch)
-      console.log(branch.branch_name)
-    }
-
-    for (let branch of branchesPayload) {
       const foundBranch = await findCompanyByBranchName(branch.branch_name);
       if (foundBranch !== null) {
         const filteredCurrencies = filterCurrencies(foundBranch, branch);
@@ -92,7 +88,24 @@ async function findAllCurrenciesByBranchName(branchesPayload) {
           await updateManyCurrencies(filteredCurrencies.update);
         }
       }
-    }
+    });
+    // for (let branch of branchesPayload) {
+    //   const foundBranch = await findCompanyByBranchName(branch.branch_name);
+    //   if (foundBranch !== null) {
+    //     const filteredCurrencies = filterCurrencies(foundBranch, branch);
+    //     if (filteredCurrencies.delete.length !== 0) {
+    //       await deleteManyCurrencies(filteredCurrencies.delete);
+    //     }
+    //
+    //     if (filteredCurrencies.create.length !== 0) {
+    //       await createManyCurrencies(foundBranch.id, filteredCurrencies.create);
+    //     }
+    //
+    //     if (filteredCurrencies.update.length !== 0) {
+    //       await updateManyCurrencies(filteredCurrencies.update);
+    //     }
+    //   }
+    // }
   }
 }
 
