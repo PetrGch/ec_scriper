@@ -1,6 +1,5 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
-import fs from 'fs';
 
 const options = {
   uri: 'http://www.pannee-exchange.com/',

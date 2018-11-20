@@ -1,6 +1,5 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
-import fs from 'fs';
 
 const options = {
   uri: 'http://www.siamexchange.co.th/',
@@ -9,7 +8,7 @@ const options = {
   }
 };
 
-function scraper_2() {
+export function siamExchange() {
   return request(options)
     .then(($) => {
       const response = {
@@ -84,12 +83,3 @@ function scraper_2() {
       console.log(err);
     });
 }
-
-scraper_2().then((response) => {
-  fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
-    if (err) throw err;
-    console.log('Data written to file');
-  });
-}, (ex) => {
-  console.log(ex);
-});

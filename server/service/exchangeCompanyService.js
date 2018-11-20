@@ -8,11 +8,14 @@ export function getAllExchangeCompanies() {
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type', 'created_at', 'updated_at'],
+        attributes: ['id', 'currency_name', 'currency_type'],
         include: [
           {
             model: models.ExchangeCurrencyAmount,
-            attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
+            attributes: [
+              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
+              'sell_price', 'buy_price', 'created_at', 'updated_at'
+            ],
           }
         ]
       },
@@ -51,11 +54,14 @@ export function findCompanyById(id) {
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type', 'created_at', 'updated_at'],
+        attributes: ['id', 'currency_name', 'currency_type'],
         include: [
           {
             model: models.ExchangeCurrencyAmount,
-            attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
+            attributes: [
+              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
+              'sell_price', 'buy_price', 'created_at', 'updated_at'
+            ],
           }
         ]
       },
@@ -85,11 +91,14 @@ export function findCompanyByBranchName(branchName) {
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type', 'created_at', 'updated_at'],
+        attributes: ['id', 'currency_name', 'currency_type'],
         include: [
           {
             model: models.ExchangeCurrencyAmount,
-            attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
+            attributes: [
+              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
+              'sell_price', 'buy_price', 'created_at', 'updated_at'
+            ],
           }
         ]
       },
@@ -113,11 +122,14 @@ export function findCompanyByName(companyName) {
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type', 'created_at', 'updated_at'],
+        attributes: ['id', 'currency_name', 'currency_type'],
         include: [
           {
             model: models.ExchangeCurrencyAmount,
-            attributes: ['id', 'currency_amount', 'currency_amount_from', 'currency_amount_to', 'sell_price', 'buy_price'],
+            attributes: [
+              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
+              'sell_price', 'buy_price', 'created_at', 'updated_at'
+            ],
           }
         ]
       },
