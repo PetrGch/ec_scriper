@@ -11,6 +11,7 @@ import {superRichThailand} from "../../scriper/superRichThailand";
 import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
 import {centralBankOfThailand} from "../../scriper/centralBankOfThailand";
 import {siaMoneyExchange} from "../../scriper/SIAMoneyExchange";
+import {panneeExchange} from "../../scriper/panneeExchange";
 
 const exchangeCompanyController = express.Router({});
 
@@ -25,7 +26,7 @@ exchangeCompanyController.get('/', (req, res) => {
 
 // run scraper
 exchangeCompanyController.put('/scraper', (req, res) => {
-  Promise.all([centralBankOfThailand(), superRichThailand(), siaMoneyExchange()])
+  Promise.all([centralBankOfThailand(), superRichThailand(), siaMoneyExchange(), panneeExchange()])
     .then(responses => {
       const filteredResponses = responses.filter(response => response && Array.isArray(response));
       const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
