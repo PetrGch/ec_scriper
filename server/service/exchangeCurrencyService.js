@@ -71,7 +71,10 @@ export function updateCurrenciesAmount(branchesPayload) {
 
 async function findAllCurrenciesByBranchName(branchesPayload) {
   if (branchesPayload && branchesPayload.length !== 0) {
-    console.log(branchesPayload)
+    branchesPayload.forEach(item => {
+      console.log(item.branch_name)
+      console.log(item)
+    });
     for (let branch of branchesPayload) {
       const foundBranch = await findCompanyByBranchName(branch.branch_name);
       if (foundBranch !== null) {
