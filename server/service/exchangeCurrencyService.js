@@ -74,8 +74,10 @@ async function findAllCurrenciesByBranchName(branchesPayload) {
     for (let branch of branchesPayload) {
       console.log(branch)
       console.log(branch.branch_name)
+    }
+
+    for (let branch of branchesPayload) {
       const foundBranch = await findCompanyByBranchName(branch.branch_name);
-      console.log(JSON.stringify(foundBranch))
       if (foundBranch !== null) {
         const filteredCurrencies = filterCurrencies(foundBranch, branch);
         if (filteredCurrencies.delete.length !== 0) {

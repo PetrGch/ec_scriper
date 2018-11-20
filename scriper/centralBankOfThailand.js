@@ -1,7 +1,5 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
-import fs from 'fs';
-import {superRichThailand} from "./superRichThailand";
 
 const options = {
   uri: 'https://www.bot.or.th/English/Statistics/FinancialMarkets/ExchangeRate/_layouts/Application/ExchangeRate/ExchangeRate.aspx',
