@@ -20,6 +20,7 @@ app.use('/', cors(corsOptions), index);
 
 models.sequelize.sync().then(function () {
   app.listen(properties.PORT, () => {
+    
     console.log(`😎 Server is listening on port ${properties.PORT}`);
   });
 });
