@@ -154,7 +154,7 @@ export const CentralBankSingleton = (function () {
         }
       })
       .catch((ex) => {
-        instance.errorMessage = ex.message;
+        instance.errorMessage = ex;
       });
   }
 
