@@ -88,23 +88,6 @@ async function findAllCurrenciesByBranchName(branchesPayload) {
         }
       }
     });
-    // for (let branch of branchesPayload) {
-    //   const foundBranch = await findCompanyByBranchName(branch.branch_name);
-    //   if (foundBranch !== null) {
-    //     const filteredCurrencies = filterCurrencies(foundBranch, branch);
-    //     if (filteredCurrencies.delete.length !== 0) {
-    //       await deleteManyCurrencies(filteredCurrencies.delete);
-    //     }
-    //
-    //     if (filteredCurrencies.create.length !== 0) {
-    //       await createManyCurrencies(foundBranch.id, filteredCurrencies.create);
-    //     }
-    //
-    //     if (filteredCurrencies.update.length !== 0) {
-    //       await updateManyCurrencies(filteredCurrencies.update);
-    //     }
-    //   }
-    // }
   }
 }
 

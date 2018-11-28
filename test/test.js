@@ -1,6 +1,6 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
-import fs from 'fs';
+const puppeteer = require('puppeteer');
 
 const options = {
   uri: 'http://www.siamexchange.co.th/',
@@ -8,6 +8,15 @@ const options = {
     return cheerio.load(body);
   }
 };
+
+(async () => {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://excurrate.com');
+  await page.screenshot({path: 'example.png'});
+
+  await browser.close();
+})();
 
 function scraper_2() {
   return request(options)
@@ -85,11 +94,11 @@ function scraper_2() {
     });
 }
 
-scraper_2().then((response) => {
-  fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
-    if (err) throw err;
-    console.log('Data written to file');
-  });
-}, (ex) => {
-  console.log(ex);
-});
+// scraper_2().then((response) => {
+//   fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
+//     if (err) throw err;
+//     console.log('Data written to file');
+//   });
+// }, (ex) => {
+//   console.log(ex);
+// });
