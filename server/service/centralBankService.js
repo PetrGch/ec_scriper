@@ -99,7 +99,7 @@ async function getCentralBankData(currencyType) {
       .then(response => {
         const parsedResponse = parseResponse(JSON.parse(response));
 
-        if (!parsedResponse.dataHeader || !parsedResponse.dataDetail) {
+        if (!parsedResponse || !parsedResponse.dataHeader || !parsedResponse.dataDetail) {
           throw new Error("Parse error");
         }
 
