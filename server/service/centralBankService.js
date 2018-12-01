@@ -137,6 +137,8 @@ export const CentralBankSingleton = (function () {
               a.period >= b.period ? 1 : -1)
           })
         }
+      }, (ex) => {
+        throw new Error(ex);
       })
       .catch((ex) => {
         instance.errorMessage = ex.message;
@@ -152,26 +154,28 @@ export const CentralBankSingleton = (function () {
               a.period >= b.period ? 1 : -1)
           })
         }
+      }, (ex) => {
+        throw new Error(ex);
       })
       .catch((ex) => {
         instance.errorMessage = ex;
       });
   }
 
-  function run(currencyType, interval = 600000) {
+  function run(currencyType, interval = 1200000) {
     getUsdData();
     getEurData();
 
-    intervalId = setInterval(() => {
+    intervalId = setTimeout(() => {
       getUsdData();
       getEurData();
-      console.log("Tick!");
-    }, interval)
+      intervalId = setTimeout(tick, interval);
+    }, interval);
   }
 
   function stop() {
     if (intervalId) {
-      clearInterval(intervalId);
+      clearTimeout(intervalId);
     }
   }
 
@@ -184,7 +188,7 @@ export const CentralBankSingleton = (function () {
       }
 
       if (!instance || (instance && !instance.eur)) {
-        return null
+        return "instance is empty";
       }
 
       if (!portion || portionInLowerCase === "all") {
@@ -211,7 +215,7 @@ export const CentralBankSingleton = (function () {
       }
 
       if (!instance || (instance && !instance.usd)) {
-        return null
+        return "instance is empty";
       }
 
       if (!portion || portionInLowerCase === "all") {
@@ -229,16 +233,27 @@ export const CentralBankSingleton = (function () {
       }
 
       return null;
-
     },
     run: function(interval) {
       if (!instance) {
         instance = createInstance();
       }
       run(interval);
+      return `Scheduler is running with interval: ${interval}ms`
+    },
+    restart: function(interval) {
+      if (instance) {
+        instance = createInstance();
+      }
+      run(interval);
+      return instance;
     },
     stop: function() {
+      if (!intervalId) {
+        return "Scheduler wasn't created yet";
+      }
       stop();
+      return "Scheduler was stopped";
     }
   };
 })();
