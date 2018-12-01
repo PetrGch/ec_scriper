@@ -10,7 +10,9 @@ export function createManyCurrenciesAmount(currencyId, currenciesAmount) {
         currency_amount_to: amount.currency_amount_to,
         sell_price: amount.sell_price,
         buy_price: amount.buy_price,
-        exchange_currency_id: currencyId
+        exchange_currency_id: currencyId,
+        sell_trend: amount.sell_price,
+        buy_trend: amount.buy_price
       }
     });
 
@@ -93,17 +95,31 @@ function filterAmounts(foundCurrency, payloadCurrency) {
   };
 }
 
+function defineCurrencyTrend(oldCurrency, newCurrency) {
+  return getFixedNumber(newCurrency, 3) - getFixedNumber(oldCurrency, 3)
+}
+
 async function updateAllAmounts(amounts) {
   await amounts.forEach(async ({newAmount, oldAmount}) => {
-    if ((getFixedNumber(newAmount.sell_price, 3) !== getFixedNumber(oldAmount.sell_price, 3))
-      || (getFixedNumber(newAmount.buy_price, 3) !== getFixedNumber(oldAmount.buy_price, 3))) {
-      await models.ExchangeCurrencyAmount.update(
-        {
-          sell_price: newAmount.sell_price || oldAmount.sell_price,
-          buy_price: newAmount.buy_price || oldAmount.buy_price
-        },
-        { where: { id: oldAmount.id } }
-      )
-    }
+    await models.ExchangeCurrencyAmount.update(
+      {
+        sell_price: newAmount.sell_price || oldAmount.sell_price,
+        buy_price: newAmount.buy_price || oldAmount.buy_price,
+        sell_trend: defineCurrencyTrend(oldAmount.sell_price, newAmount.sell_price),
+        buy_trend: defineCurrencyTrend(oldAmount.buy_price, newAmount.buy_price)
+      },
+      { where: { id: oldAmount.id } }
+    );
+    // if ((getFixedNumber(newAmount.sell_price, 3) !== getFixedNumber(oldAmount.sell_price, 3))
+    //   || (getFixedNumber(newAmount.buy_price, 3) !== getFixedNumber(oldAmount.buy_price, 3))) {
+    //
+    //   await models.ExchangeCurrencyAmount.update(
+    //     {
+    //       sell_price: newAmount.sell_price || oldAmount.sell_price,
+    //       buy_price: newAmount.buy_price || oldAmount.buy_price
+    //     },
+    //     { where: { id: oldAmount.id } }
+    //   )
+    // }
   })
 }

@@ -14,7 +14,7 @@ export function getAllExchangeCompanies() {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'created_at', 'updated_at'
+              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
             ],
           }
         ]
@@ -60,7 +60,7 @@ export function findCompanyById(id) {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'created_at', 'updated_at'
+              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
             ],
           }
         ]
@@ -97,7 +97,7 @@ export function findCompanyByBranchName(branchName) {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'created_at', 'updated_at'
+              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
             ],
           }
         ]
@@ -128,7 +128,7 @@ export function findCompanyByName(companyName) {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'created_at', 'updated_at'
+              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
             ],
           }
         ]

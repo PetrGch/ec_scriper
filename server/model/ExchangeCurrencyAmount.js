@@ -22,7 +22,15 @@ export function defineExchangeCurrencyAmount(sequelize, DataTypes) {
     buy_price: {
       type: DataTypes.DOUBLE,
       allowNull: true
-    }
+    },
+    sell_trend: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    buy_trend: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
   }, {
     underscored: true,
     tableName: 'exchange_currency_amount'
@@ -33,4 +41,4 @@ export function defineExchangeCurrencyAmount(sequelize, DataTypes) {
   };
 
   return ExchangeCurrencyAmount;
-};
+}

@@ -8,16 +8,18 @@ import {findCompanyByBranchName} from "./exchangeCompanyService";
 
 export function createManyCurrencies(companyId, currencies) {
   if (currencies && currencies.length !== 0) {
-    return Promise.all(currencies.map(currency => {
-      return models.ExchangeCurrency.create({
-        currency_name: currency.currency_name,
-        currency_type: currency.currency_type,
-        exchange_company_id: companyId
-      })
-        .then(currencyAmount => {
-          return createManyCurrenciesAmount(currencyAmount.id, currency.exchange_currency_amounts);
-        });
-    }));
+    return Promise.all(currencies
+      .filter(currency => !!currency.currency_type)
+      .map(currency => {
+        return models.ExchangeCurrency.create({
+          currency_name: currency.currency_name,
+          currency_type: currency.currency_type,
+          exchange_company_id: companyId
+        })
+          .then(currencyAmount => {
+            return createManyCurrenciesAmount(currencyAmount.id, currency.exchange_currency_amounts);
+          });
+      }));
   }
 
   return null;
@@ -43,7 +45,7 @@ export async function deleteManyCurrencies(currencies) {
 }
 
 export async function updateManyCurrencies(currencies) {
-  await currencies.forEach(async ({oldCurrency, newCurrency}) => {
+  await currencies.forEach(async ({ oldCurrency, newCurrency }) => {
     if (oldCurrency.exchange_currency_amounts && Array.isArray(oldCurrency.exchange_currency_amounts)) {
       await updateManyCurrencyAmount(oldCurrency, newCurrency)
         .then(() => {
@@ -110,7 +112,6 @@ function filterCurrencies(foundBranch = [], branchPayload = []) {
 
     branchPayload.exchange_currencies.forEach(currencyInPayload => {
       if (foundBranch.exchange_currencies && foundBranch.exchange_currencies.length !== 0) {
-
         foundBranch.exchange_currencies.forEach(currency => {
           if (currency.currency_type === currencyInPayload.currency_type) {
             const createIndex = forCreate.indexOf(currencyInPayload);
