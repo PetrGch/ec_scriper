@@ -13,6 +13,7 @@ import {centralBankOfThailand} from "../../scriper/centralBankOfThailand";
 import {siaMoneyExchange} from "../../scriper/SIAMoneyExchange";
 import {panneeExchange} from "../../scriper/panneeExchange";
 import {siamExchange} from "../../scriper/siamExchange";
+import {CentralBankSingleton} from "../service/centralBankService";
 
 const exchangeCompanyController = express.Router({});
 
@@ -21,6 +22,16 @@ exchangeCompanyController.get('/', (req, res) => {
   getAllExchangeCompanies()
     .then(company => {
       res.json(company);
+    })
+    .catch(ex => res.send(ex));
+});
+
+// get all companies and central bank data for SNAPSHOT
+exchangeCompanyController.get('/snapshot', (req, res) => {
+  const centralBankData = CentralBankSingleton.getUsdPortion("7");
+  getAllExchangeCompanies()
+    .then(company => {
+      res.json({ company, centralBank: centralBankData });
     })
     .catch(ex => res.send(ex));
 });

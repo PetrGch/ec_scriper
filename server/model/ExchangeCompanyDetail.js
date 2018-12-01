@@ -16,4 +16,4 @@ export function defineExchangeCompanyDetail(sequelize, DataTypes) {
     underscored: true,
     tableName: 'exchange_company_detail'
   });
-};
+}

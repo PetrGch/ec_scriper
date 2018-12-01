@@ -4,6 +4,7 @@ import {defineExchangeCompany} from "./ExchangeCompany";
 import {defineExchangeCurrencyAmount} from "./ExchangeCurrencyAmount";
 import {defineExchangeCompanyWorkingTime} from "./ExchangeCompanyWorkingTime";
 import {defineExchangeCompanyDetail} from "./ExchangeCompanyDetail";
+import {defineExchangeCompanyBranch} from "./ExchangeCompanyBranch";
 
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
@@ -25,6 +26,7 @@ const sequelize = new Sequelize(
 
 const models = {
   ExchangeCompany: defineExchangeCompany(sequelize, Sequelize.DataTypes),
+  ExchangeCompanyBranch: defineExchangeCompanyBranch(sequelize, Sequelize.DataTypes),
   ExchangeCompanyWorkingTime: defineExchangeCompanyWorkingTime(sequelize, Sequelize.DataTypes),
   ExchangeCompanyDetail: defineExchangeCompanyDetail(sequelize, Sequelize.DataTypes),
   ExchangeCurrency: defineExchangeCurrency(sequelize, Sequelize.DataTypes),

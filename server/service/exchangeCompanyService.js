@@ -20,6 +20,12 @@ export function getAllExchangeCompanies() {
         ]
       },
       {
+        model: models.ExchangeCompanyBranch,
+        attributes: [
+          'company_name', 'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
+        ],
+      },
+      {
         model: models.ExchangeCompanyDetail,
         attributes: ['phone', 'website', 'email'],
       },
@@ -66,6 +72,12 @@ export function findCompanyById(id) {
         ]
       },
       {
+        model: models.ExchangeCompanyBranch,
+        attributes: [
+          'company_name', 'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
+        ],
+      },
+      {
         model: models.ExchangeCompanyDetail,
         attributes: ['phone', 'website', 'email'],
       },
@@ -103,6 +115,12 @@ export function findCompanyByBranchName(branchName) {
         ]
       },
       {
+        model: models.ExchangeCompanyBranch,
+        attributes: [
+          'company_name', 'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
+        ],
+      },
+      {
         model: models.ExchangeCompanyDetail,
         attributes: ['phone', 'website', 'email'],
       },
@@ -132,6 +150,12 @@ export function findCompanyByName(companyName) {
             ],
           }
         ]
+      },
+      {
+        model: models.ExchangeCompanyBranch,
+        attributes: [
+          'company_name', 'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
+        ],
       },
       {
         model: models.ExchangeCompanyDetail,

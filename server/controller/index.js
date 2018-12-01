@@ -6,10 +6,12 @@ import exchangeCurrencyAmountController from "./exchangeCurrencyAmountController
 import exchangeCompanyDetailController from "./exchangeCompanyDetailController";
 import exchangeCompanyWorkingTimeController from "./exchangeCompanyWorkingTimeController";
 import centralBankController from "./centralBankController";
+import exchangeCompanyBranchController from "./exchangeCompanyBranchController";
 
 const controller = express.Router({});
 
 controller.use('/exCompany', exchangeCompanyController);
+controller.use('/exCompanyBranch', exchangeCompanyBranchController);
 controller.use('/exCompanyDetail', exchangeCompanyDetailController);
 controller.use('/exCompanyWorkingTime', exchangeCompanyWorkingTimeController);
 controller.use('/exCurrency', exchangeCurrencyController);

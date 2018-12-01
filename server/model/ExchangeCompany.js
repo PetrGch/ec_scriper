@@ -35,7 +35,6 @@ export function defineExchangeCompany(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
     }
-
   }, {
     underscored: true,
     tableName: 'exchange_company',
@@ -46,9 +45,10 @@ export function defineExchangeCompany(sequelize, DataTypes) {
 
   ExchangeCompany.associate = function (models) {
     ExchangeCompany.hasMany(models.ExchangeCurrency);
+    ExchangeCompany.hasMany(models.ExchangeCompanyBranch);
     ExchangeCompany.hasOne(models.ExchangeCompanyDetail);
     ExchangeCompany.hasOne(models.ExchangeCompanyWorkingTime);
   };
 
   return ExchangeCompany;
-};
+}

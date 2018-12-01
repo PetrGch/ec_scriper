@@ -60,4 +60,4 @@ export function defineExchangeCompanyWorkingTime(sequelize, DataTypes) {
     underscored: true,
     tableName: 'exchange_company_working_time'
   });
-};
+}

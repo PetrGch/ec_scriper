@@ -166,7 +166,7 @@ export const CentralBankSingleton = (function () {
     getUsdData();
     getEurData();
 
-    intervalId = setTimeout(() => {
+    intervalId = setTimeout(function tick() {
       getUsdData();
       getEurData();
       intervalId = setTimeout(tick, interval);
