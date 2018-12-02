@@ -238,6 +238,10 @@ export const CentralBankSingleton = (function () {
       if (!instance) {
         instance = createInstance();
       }
+      if (intervalId) {
+        return "Scheduler already is running";
+      }
+
       run(interval);
       return `Scheduler is running with interval: ${interval}ms`
     },
