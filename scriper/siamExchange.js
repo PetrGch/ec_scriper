@@ -1,5 +1,6 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
+import {telegramLogger} from "../server/bot/telegramServerBot";
 
 const options = {
   uri: 'http://www.siamexchange.co.th/',
@@ -80,6 +81,6 @@ export function siamExchange() {
       return [response];
     })
     .catch(function (err) {
-      console.log(err);
+      telegramLogger(err.message);
     });
 }

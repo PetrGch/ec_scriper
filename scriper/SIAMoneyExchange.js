@@ -1,5 +1,6 @@
 import request from "request-promise";
 import cheerio from "cheerio";
+import {telegramLogger} from "../server/bot/telegramServerBot";
 
 const options = {
   uri: 'http://www.sia-moneyexchange.com/en/rate.php',
@@ -97,6 +98,6 @@ export async function siaMoneyExchange() {
       return [response];
     })
     .catch(function (err) {
-      console.log(err);
+      telegramLogger(err.message);
     });
 }

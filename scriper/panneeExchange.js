@@ -1,5 +1,6 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
+import {telegramLogger} from "../server/bot/telegramServerBot";
 
 const options = {
   uri: 'http://www.pannee-exchange.com/',
@@ -71,6 +72,6 @@ export function panneeExchange() {
       return [response];
     })
     .catch(function (err) {
-      console.log(err);
+      telegramLogger(err.message);
     });
 }

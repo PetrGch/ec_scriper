@@ -1,5 +1,6 @@
 import request from 'request-promise';
 import cheerio from 'cheerio';
+import {telegramLogger} from "../server/bot/telegramServerBot";
 
 const options = {
   uri: 'https://www.bot.or.th/English/Statistics/FinancialMarkets/ExchangeRate/_layouts/Application/ExchangeRate/ExchangeRate.aspx',
@@ -50,6 +51,6 @@ export function centralBankOfThailand() {
       return [response];
     })
     .catch(function (err) {
-      console.log(err);
+      telegramLogger(err.message);
     });
 }

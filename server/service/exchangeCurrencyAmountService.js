@@ -29,13 +29,6 @@ export function deleteManyCurrenciesAmount(amounts) {
   });
 }
 
-export function findManyCurrenciesAmount(amounts) {
-  const amountsId = amounts.map(amount => amount.id);
-  return models.ExchangeCurrencyAmount.findAll({
-    where: { id: amountsId }
-  })
-}
-
 export async function updateManyCurrencyAmount(oldCurrency, newCurrency) {
   const filteredAmounts = filterAmounts(oldCurrency, newCurrency);
 
@@ -101,25 +94,18 @@ function defineCurrencyTrend(oldCurrency, newCurrency) {
 
 async function updateAllAmounts(amounts) {
   await amounts.forEach(async ({newAmount, oldAmount}) => {
-    await models.ExchangeCurrencyAmount.update(
-      {
-        sell_price: newAmount.sell_price || oldAmount.sell_price,
-        buy_price: newAmount.buy_price || oldAmount.buy_price,
-        sell_trend: defineCurrencyTrend(oldAmount.sell_price, newAmount.sell_price),
-        buy_trend: defineCurrencyTrend(oldAmount.buy_price, newAmount.buy_price)
-      },
-      { where: { id: oldAmount.id } }
-    );
-    // if ((getFixedNumber(newAmount.sell_price, 3) !== getFixedNumber(oldAmount.sell_price, 3))
-    //   || (getFixedNumber(newAmount.buy_price, 3) !== getFixedNumber(oldAmount.buy_price, 3))) {
-    //
-    //   await models.ExchangeCurrencyAmount.update(
-    //     {
-    //       sell_price: newAmount.sell_price || oldAmount.sell_price,
-    //       buy_price: newAmount.buy_price || oldAmount.buy_price
-    //     },
-    //     { where: { id: oldAmount.id } }
-    //   )
-    // }
+    if ((getFixedNumber(newAmount.sell_price, 3) !== getFixedNumber(oldAmount.sell_price, 3))
+      || (getFixedNumber(newAmount.buy_price, 3) !== getFixedNumber(oldAmount.buy_price, 3))) {
+
+      await models.ExchangeCurrencyAmount.update(
+        {
+          sell_price: newAmount.sell_price || oldAmount.sell_price,
+          buy_price: newAmount.buy_price || oldAmount.buy_price,
+          sell_trend: defineCurrencyTrend(oldAmount.sell_price, newAmount.sell_price),
+          buy_trend: defineCurrencyTrend(oldAmount.buy_price, newAmount.buy_price)
+        },
+        { where: { id: oldAmount.id } }
+      )
+    }
   })
 }

@@ -1,6 +1,7 @@
 import request from "request";
 import moment from "moment";
 import properties from "../properties";
+import {telegramLogger} from "../bot/telegramServerBot";
 
 const DATE_FORMAT = "YYYY-MM-DD";
 
@@ -22,6 +23,7 @@ function promiseRequest(options) {
   return new Promise((resolve, reject) => {
     request(options, function (error, response, body) {
       if (error) {
+        telegramLogger(error);
         reject(error);
       }
 
@@ -100,6 +102,7 @@ async function getCentralBankData(currencyType) {
         const parsedResponse = parseResponse(JSON.parse(response));
 
         if (!parsedResponse || !parsedResponse.dataHeader || !parsedResponse.dataDetail) {
+          telegramLogger("Central Bank parse error");
           throw new Error("Parse error");
         }
 

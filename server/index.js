@@ -5,7 +5,10 @@ import cors from 'cors';
 import properties from "./properties";
 import index from "./controller/index";
 import models from "./model";
-import {CentralBankSingleton} from "./service/centralBankService";
+
+// ----------------- Telegram Bot ------------------
+import "./bot/telegramBot";
+// ----------------- Telegram Bot ------------------
 
 const app = express();
 
@@ -13,8 +16,6 @@ const corsOptions = {
   origin: ["http://localhost:3000", "https://excurrate.com"],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-
-CentralBankSingleton.run();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

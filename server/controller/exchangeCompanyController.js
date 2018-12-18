@@ -7,12 +7,6 @@ import {
   getAllExchangeCompanies,
   postExchangeCompany, updateCompany
 } from "../service/exchangeCompanyService";
-import {superRichThailand} from "../../scriper/superRichThailand";
-import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
-import {centralBankOfThailand} from "../../scriper/centralBankOfThailand";
-import {siaMoneyExchange} from "../../scriper/SIAMoneyExchange";
-import {panneeExchange} from "../../scriper/panneeExchange";
-import {siamExchange} from "../../scriper/siamExchange";
 import {CentralBankSingleton} from "../service/centralBankService";
 
 const exchangeCompanyController = express.Router({});
@@ -34,29 +28,6 @@ exchangeCompanyController.get('/snapshot', (req, res) => {
       res.json({ company, centralBank: centralBankData });
     })
     .catch(ex => res.send(ex));
-});
-
-// run scraper
-exchangeCompanyController.get('/scraper', (req, res) => {
-  Promise.all([centralBankOfThailand(), superRichThailand(), siaMoneyExchange(), panneeExchange(), siamExchange()])
-    .then(responses => {
-      const filteredResponses = responses.filter(response => response && Array.isArray(response));
-      const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
-        return responseAcc.concat(response);
-      }, []);
-
-      updateCurrenciesAmount(concatedResponses)
-        .then(() => {
-          res.sendStatus(200);
-        }, (ex) => {
-          throw new Error(ex);
-        })
-        .catch((ex) => {
-          res.send(ex);
-        })
-    }, () => {
-      res.sendStatus(500)
-    });
 });
 
 // get company by id
