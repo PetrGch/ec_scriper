@@ -55,7 +55,7 @@ export const scraperCompanySingleton = (function () {
       });
   }
 
-  function run(currencyType, interval = 1200000) {
+  function run(interval = 1200000) {
     scrape();
     intervalId = setTimeout(function tick() {
       scrape();
