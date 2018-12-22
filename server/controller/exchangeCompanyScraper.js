@@ -62,7 +62,9 @@ exchangeCompanyScraper.get("/branch/:name", (req, res) => {
 });
 
 exchangeCompanyScraper.get("/scheduler/run", (req, res) => {
-  res.send(scraperCompanySingleton.run());
+  const interval = req.query.interval;
+
+  res.send(scraperCompanySingleton.run(interval));
 });
 
 exchangeCompanyScraper.get("/scheduler/stop", (req, res) => {
@@ -70,7 +72,9 @@ exchangeCompanyScraper.get("/scheduler/stop", (req, res) => {
 });
 
 exchangeCompanyScraper.get("/scheduler/restart", (req, res) => {
-  res.send(scraperCompanySingleton.restart());
+  const interval = req.query.interval;
+
+  res.send(scraperCompanySingleton.restart(interval));
 });
 
 exchangeCompanyScraper.get("/scheduler/statistic", (req, res) => {
