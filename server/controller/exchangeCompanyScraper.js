@@ -7,7 +7,6 @@ import {siaMoneyExchange} from "../../scriper/SIAMoneyExchange";
 import {siamExchange} from "../../scriper/siamExchange";
 import {superRichThailand} from "../../scriper/superRichThailand";
 import {scrapersConfig} from "../../scriper/scrapersConfig";
-import {telegramLogger} from "../bot/telegramServerBot";
 import {scraperCompanySingleton} from "../service/exchangeCompanyScraperService";
 
 const exchangeCompanyScraper = express.Router({});
@@ -79,11 +78,6 @@ exchangeCompanyScraper.get("/scheduler/restart", (req, res) => {
 
 exchangeCompanyScraper.get("/scheduler/statistic", (req, res) => {
   res.send(scraperCompanySingleton.statistic());
-});
-
-exchangeCompanyScraper.get("/logger", (req, res) => {
-  telegramLogger("Hi Petr!");
-  res.status(200).send("Ok");
 });
 
 export default exchangeCompanyScraper;

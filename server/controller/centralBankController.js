@@ -1,5 +1,8 @@
 import express from 'express';
-import {CentralBankSingleton} from "../service/centralBankService";
+import {
+  CentralBankSingleton,
+  getCentralBankDataByCurrencyTypeAndRange
+} from "../service/centralBankService";
 
 const centralBankController = express.Router({});
 
@@ -7,15 +10,17 @@ centralBankController.get("/", (req, res) => {
   const { currencyType, period } = req.query;
 
   if (currencyType) {
-    if (currencyType.toLowerCase() === "usd") {
-      res.json(CentralBankSingleton.getUsdPortion(period));
-    } else if (currencyType.toLowerCase() === "eur") {
-      res.json(CentralBankSingleton.getEurPortion(period));
-    } else {
-      res.send("currency type parameter is not correct");
-    }
+    getCentralBankDataByCurrencyTypeAndRange(currencyType)
+      .then((data) => {
+        const returnData = period && typeof period === "number"
+          ? Object.assign(data.dataValues, { central_bank_details: data.dataValues.central_bank_details.slice(-period) })
+          : data;
+        res.status(200).json(returnData);
+      }).catch((ex) => {
+        res.status(500).send(ex);
+      });
   } else {
-    res.send("currency type parameter was not specified");
+    res.status(500).send("currency type parameter was not specified");
   }
 });
 

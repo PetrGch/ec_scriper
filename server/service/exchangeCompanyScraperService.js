@@ -30,11 +30,12 @@ export async function scrapeCompanyInParallel() {
 }
 
 export const scraperCompanySingleton = (function () {
+  let isSchedulerRunning;
   let statistic;
   let intervalId;
 
   function createStatistic() {
-    return {
+    statistic = {
       amountOfUpdates: 0,
       successUpdates: 0,
       failUpdates: 0
@@ -56,7 +57,9 @@ export const scraperCompanySingleton = (function () {
   }
 
   function run(interval = 1200000) {
+    isSchedulerRunning = true;
     scrape();
+
     intervalId = setTimeout(function tick() {
       scrape();
       intervalId = setTimeout(tick, interval);
@@ -64,17 +67,18 @@ export const scraperCompanySingleton = (function () {
   }
 
   function stop() {
-    if (intervalId) {
+    if (isSchedulerRunning) {
       clearTimeout(intervalId);
+      isSchedulerRunning = false;
     }
   }
 
   return {
     run: function(interval) {
       if (!statistic) {
-        statistic = createStatistic();
+        createStatistic();
       }
-      if (intervalId) {
+      if (isSchedulerRunning) {
         return "Scheduler already is running";
       }
 
@@ -82,15 +86,21 @@ export const scraperCompanySingleton = (function () {
       return `Scheduler is running with interval: ${interval}ms`
     },
     restart: function(interval) {
-      if (statistic) {
-        statistic = createStatistic();
+      if (!statistic) {
+        createStatistic();
       }
-      run(interval);
-      return statistic;
+      if (isSchedulerRunning) {
+        stop();
+        run(interval);
+
+        return statistic;
+      }
+
+      return "Scheduler wasn't started yet";
     },
     stop: function() {
-      if (!intervalId) {
-        return "Scheduler wasn't created yet";
+      if (!isSchedulerRunning) {
+        return "Scheduler wasn't started yet";
       }
       stop();
       return "Scheduler was stopped";

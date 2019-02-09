@@ -1,7 +1,65 @@
 import request from "request";
 import moment from "moment";
+
 import properties from "../properties";
 import {telegramLogger} from "../bot/telegramServerBot";
+import models from "../model";
+import {createCentralBankDetail, deleteCentralBankDetail} from "./centralBankDetailService";
+
+export function getCentralBankDataByCurrencyTypeAndRange(currencyType = "USD") {
+  return models.CentralBank.findOne({
+    where: {
+      currency_id: currencyType
+    },
+    include: [
+      {
+        model: models.CentralBankDetail,
+        order: "period",
+        attributes: ['id', 'period', 'buy_price', "sell_price"]
+      }
+    ]
+  });
+}
+
+export function postCentralBank(centralBankPayload) {
+  if (!centralBankPayload) {
+    return;
+  }
+
+  return getCentralBankDataByCurrencyTypeAndRange(centralBankPayload.dataHeader.currency_id)
+    .then((data) => {
+      if (data === null) {
+        return models.CentralBank.create({
+          title_eng: centralBankPayload.dataHeader.title_eng,
+          title_th: centralBankPayload.dataHeader.title_th,
+          subtitle_eng: centralBankPayload.dataHeader.subtitle_eng,
+          subtitle_th: centralBankPayload.dataHeader.subtitle_th,
+          source_of_data_eng: centralBankPayload.dataHeader.source_of_data_eng,
+          source_of_data_th: centralBankPayload.dataHeader.source_of_data_th,
+          currency_name_eng: centralBankPayload.dataHeader.currency_name_eng,
+          currency_name_th: centralBankPayload.dataHeader.currency_name_th,
+          currency_id: centralBankPayload.dataHeader.currency_id,
+          last_updated: centralBankPayload.dataHeader.last_updated
+        }).then(centralBank => {
+          return createCentralBankDetail(centralBank.id, centralBankPayload.dataDetail);
+        });
+      } else {
+        return createCentralBankDetail(data.dataValues.id, centralBankPayload.dataDetail);
+      }
+    });
+}
+
+function deleteCentralBank(currencyType) {
+  return getCentralBankDataByCurrencyTypeAndRange(currencyType)
+    .then((data) => {
+      if (data !== null && data.id) {
+        return deleteCentralBankDetail(data.id);
+      }
+    })
+    .catch((ex) => {
+      return Promise.reject(ex);
+    })
+}
 
 const DATE_FORMAT = "YYYY-MM-DD";
 
@@ -102,7 +160,7 @@ async function getCentralBankData(currencyType) {
         const parsedResponse = parseResponse(JSON.parse(response));
 
         if (!parsedResponse || !parsedResponse.dataHeader || !parsedResponse.dataDetail) {
-          telegramLogger("Central Bank parse error");
+          telegramLogger(JSON.stringify(response));
           throw new Error("Parse error");
         }
 
@@ -120,52 +178,49 @@ async function getCentralBankData(currencyType) {
 }
 
 export const CentralBankSingleton = (function () {
-  let instance;
+  let isSchedulerRunning;
   let intervalId;
-
-  function createInstance() {
-    return {
-      usd: null,
-      eur: null,
-      errorMessage: null
-    };
-  }
 
   function getUsdData() {
     getCentralBankData("USD")
       .then((data) => {
-        if (instance) {
-          instance.usd = Object.assign({}, data, {
-            dataDetail: data.dataDetail.sort((a, b) =>
-              a.period >= b.period ? 1 : -1)
-          })
+        if (data && data.dataHeader) {
+          deleteCentralBank("USD")
+            .then(() => {
+              const usdData = Object.assign({}, data, {
+                dataDetail: data.dataDetail.sort((a, b) =>
+                  a.period >= b.period ? 1 : -1)
+              });
+              postCentralBank(usdData);
+            })
         }
-      }, (ex) => {
-        throw new Error(ex);
       })
       .catch((ex) => {
-        instance.errorMessage = ex.message;
+        telegramLogger(ex.toString());
       });
   }
 
   function getEurData() {
     getCentralBankData("EUR")
       .then((data) => {
-        if (instance) {
-          instance.eur = Object.assign({}, data, {
-            dataDetail: data.dataDetail.sort((a, b) =>
-              a.period >= b.period ? 1 : -1)
-          })
+        if (data && data.dataHeader) {
+          deleteCentralBank("EUR")
+            .then(() => {
+              const eurData = Object.assign({}, data, {
+                dataDetail: data.dataDetail.sort((a, b) =>
+                  a.period >= b.period ? 1 : -1)
+              });
+              postCentralBank(eurData);
+            });
         }
-      }, (ex) => {
-        throw new Error(ex);
       })
       .catch((ex) => {
-        instance.errorMessage = ex;
+        telegramLogger(ex.toString());
       });
   }
 
   function run(interval = 1200000) {
+    isSchedulerRunning = true;
     getUsdData();
     getEurData();
 
@@ -177,71 +232,15 @@ export const CentralBankSingleton = (function () {
   }
 
   function stop() {
-    if (intervalId) {
+    if (isSchedulerRunning) {
       clearTimeout(intervalId);
+      isSchedulerRunning = false;
     }
   }
 
   return {
-    getEurPortion: function(portion = "all") {
-      const portionInLowerCase = portion.toLowerCase();
-
-      if (instance && instance.errorMessage) {
-        return instance.errorMessage
-      }
-
-      if (!instance || (instance && !instance.eur)) {
-        return "instance is empty";
-      }
-
-      if (!portion || portionInLowerCase === "all") {
-        return instance.eur;
-      } else if (portionInLowerCase === "30") {
-        return {
-          dataHeader: instance.eur.dataHeader,
-          dataDetail: instance.eur.dataDetail ? instance.eur.dataDetail.slice(-30) : []
-        }
-      } else if (portionInLowerCase === "7") {
-        return {
-          dataHeader: instance.eur.dataHeader,
-          dataDetail: instance.eur.dataDetail ? instance.eur.dataDetail.slice(-7) : []
-        }
-      }
-
-      return null;
-    },
-    getUsdPortion: function(portion = "all") {
-      const portionInLowerCase = portion.toLowerCase();
-
-      if (instance && instance.errorMessage) {
-        return instance.errorMessage
-      }
-
-      if (!instance || (instance && !instance.usd)) {
-        return "instance is empty";
-      }
-
-      if (!portion || portionInLowerCase === "all") {
-        return instance.usd;
-      } else if (portionInLowerCase === "30") {
-        return {
-          dataHeader: instance.usd.dataHeader,
-          dataDetail: instance.usd.dataDetail ? instance.usd.dataDetail.slice(-30) : []
-        }
-      } else if (portionInLowerCase === "7") {
-        return {
-          dataHeader: instance.usd.dataHeader,
-          dataDetail: instance.usd.dataDetail ? instance.usd.dataDetail.slice(-7) : []
-        }
-      }
-
-      return null;
-    },
     run: function(interval) {
-      if (!instance) {
-        instance = createInstance();
-      }
-      if (intervalId) {
+      if (isSchedulerRunning) {
         return "Scheduler already is running";
       }
 
@@ -249,15 +248,18 @@ export const CentralBankSingleton = (function () {
       return `Scheduler is running with interval: ${interval}ms`
     },
     restart: function(interval) {
-      if (instance) {
-        instance = createInstance();
+      if (isSchedulerRunning) {
+        stop();
+        run(interval);
+
+        return `Scheduler is running with interval: ${interval}ms`;
       }
-      run(interval);
-      return instance;
+
+      return "Scheduler wasn't started yet";
     },
     stop: function() {
-      if (!intervalId) {
-        return "Scheduler wasn't created yet";
+      if (!isSchedulerRunning) {
+        return "Scheduler wasn't started yet";
       }
       stop();
       return "Scheduler was stopped";
