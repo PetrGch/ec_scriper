@@ -22,8 +22,8 @@ export function getCentralBankDataByCurrencyTypeAndRange(currencyType = "USD") {
 }
 
 export function postCentralBank(centralBankPayload) {
-  if (!centralBankPayload) {
-    return;
+  if (!centralBankPayload && !centralBankPayload.dataHeader.currency_id) {
+    return Promise.reject("Central Bank payload is not correct");
   }
 
   return getCentralBankDataByCurrencyTypeAndRange(centralBankPayload.dataHeader.currency_id)
@@ -184,17 +184,21 @@ export const CentralBankSingleton = (function () {
   function getUsdData() {
     return getCentralBankData("USD")
       .then((data) => {
-        if (data && data.dataHeader) {
-          telegramLogger(`Central bank data for USD was scraped!
+        if (data && data.dataHeader && data.dataHeader.currency_id) {
+          const currencyType = data.dataHeader.currency_id;
+          telegramLogger(`Central bank data for ${currencyType} was scraped!
           \nResult: ${JSON.stringify({dataDetailLength: data.dataDetail.length})}`);
 
-          deleteCentralBank("USD")
+          deleteCentralBank(currencyType)
             .then(() => {
               const usdData = Object.assign({}, data, {
                 dataDetail: data.dataDetail.sort((a, b) =>
                   a.period >= b.period ? 1 : -1)
               });
-              postCentralBank(usdData);
+              postCentralBank(usdData)
+                .then(() => {
+                  telegramLogger(`Central bank data for ${currencyType} was inserted!`)
+                });
             })
         }
       })
@@ -206,17 +210,21 @@ export const CentralBankSingleton = (function () {
   function getEurData() {
     return getCentralBankData("EUR")
       .then((data) => {
-        if (data && data.dataHeader) {
-          telegramLogger(`Central bank data for EUR was scraped!
+        if (data && data.dataHeader && data.dataHeader.currency_id) {
+          const currencyType = data.dataHeader.currency_id;
+          telegramLogger(`Central bank data for ${currencyType} was scraped!
           \nResult: ${JSON.stringify({dataDetailLength: data.dataDetail.length})}`);
 
-          deleteCentralBank("EUR")
+          deleteCentralBank(currencyType)
             .then(() => {
               const eurData = Object.assign({}, data, {
                 dataDetail: data.dataDetail.sort((a, b) =>
                   a.period >= b.period ? 1 : -1)
               });
-              postCentralBank(eurData);
+              postCentralBank(eurData)
+                .then(() => {
+                  telegramLogger(`Central bank data for ${currencyType} was inserted!`)
+                });
             });
         }
       })

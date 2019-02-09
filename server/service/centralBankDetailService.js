@@ -21,8 +21,7 @@ export function deleteCentralBankDetail(centralBankId) {
     return models.CentralBankDetail.destroy({
       where: {
         central_bank_id: centralBankId
-      },
-      truncate: true
+      }
     });
   }
 
