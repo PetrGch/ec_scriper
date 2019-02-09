@@ -12,7 +12,7 @@ centralBankController.get("/", (req, res) => {
   if (currencyType) {
     getCentralBankDataByCurrencyTypeAndRange(currencyType)
       .then((data) => {
-        const returnData = period && typeof period === "number"
+        const returnData = period && !isNaN(parseInt(period))
           ? Object.assign(data.dataValues, { central_bank_details: data.dataValues.central_bank_details.slice(-period) })
           : data;
         res.status(200).json(returnData);

@@ -174,6 +174,8 @@ async function getCentralBankData(currencyType) {
       });
   }
 
+  telegramLogger(`Central bank data for ${currencyType} was scraped!
+   \nResult: ${JSON.stringify({dataDetailLength: responseObject.dataDetail.length})}`);
   return responseObject;
 }
 
