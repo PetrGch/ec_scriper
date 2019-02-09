@@ -174,8 +174,6 @@ async function getCentralBankData(currencyType) {
       });
   }
 
-  telegramLogger(`Central bank data for ${currencyType} was scraped!
-   \nResult: ${JSON.stringify({dataDetailLength: responseObject.dataDetail.length})}`);
   return responseObject;
 }
 
@@ -184,9 +182,12 @@ export const CentralBankSingleton = (function () {
   let intervalId;
 
   function getUsdData() {
-    getCentralBankData("USD")
+    return getCentralBankData("USD")
       .then((data) => {
         if (data && data.dataHeader) {
+          telegramLogger(`Central bank data for USD was scraped!
+          \nResult: ${JSON.stringify({dataDetailLength: data.dataDetail.length})}`);
+
           deleteCentralBank("USD")
             .then(() => {
               const usdData = Object.assign({}, data, {
@@ -203,9 +204,12 @@ export const CentralBankSingleton = (function () {
   }
 
   function getEurData() {
-    getCentralBankData("EUR")
+    return getCentralBankData("EUR")
       .then((data) => {
         if (data && data.dataHeader) {
+          telegramLogger(`Central bank data for EUR was scraped!
+          \nResult: ${JSON.stringify({dataDetailLength: data.dataDetail.length})}`);
+
           deleteCentralBank("EUR")
             .then(() => {
               const eurData = Object.assign({}, data, {
@@ -223,12 +227,16 @@ export const CentralBankSingleton = (function () {
 
   function run(interval = 1200000) {
     isSchedulerRunning = true;
-    getUsdData();
-    getEurData();
+    getEurData()
+      .then(() => {
+        getUsdData();
+      });
 
     intervalId = setTimeout(function tick() {
-      getUsdData();
-      getEurData();
+      getEurData()
+        .then(() => {
+          getUsdData();
+        });
       intervalId = setTimeout(tick, interval);
     }, interval);
   }
