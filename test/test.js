@@ -1,3 +1,4 @@
+import fs from "fs";
 import request from 'request-promise';
 import cheerio from 'cheerio';
 const puppeteer = require('puppeteer');
@@ -94,11 +95,11 @@ function scraper_2() {
     });
 }
 
-// scraper_2().then((response) => {
-//   fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
-//     if (err) throw err;
-//     console.log('Data written to file');
-//   });
-// }, (ex) => {
-//   console.log(ex);
-// });
+scraper_2().then((response) => {
+  fs.writeFile('student-3.json', JSON.stringify(response), (err) => {
+    if (err) throw err;
+    console.log('Data written to file');
+  });
+}, (ex) => {
+  console.log(ex);
+});

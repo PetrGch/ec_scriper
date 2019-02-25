@@ -19,17 +19,17 @@ export function siamExchange() {
 
       const currencyTypesList = [];
 
-      $(".tblrate tbody tr").each(function () {
-        const allTd = $(this).children('td');
+      $("#currency .allcurrency .row").each(function () {
+        const allDiv = $(this).children('div');
 
-        if (allTd && allTd.length !== 0) {
+        if (allDiv && allDiv.length !== 0) {
           const exchangeCurrency = {exchange_currency_amounts: []};
-          const currencyTypeAndAmount = allTd.eq(0).text().trim();
+          const currencyTypeAndAmount = allDiv.eq(3).text().trim();
           const currencyType = currencyTypeAndAmount.match(/^\w+/)[0];
           const foundCurrencyAmount = currencyTypeAndAmount.match(/\d+(-)?(\d+)?/);
           const currencyAmount = foundCurrencyAmount ? foundCurrencyAmount[0] : "1";
-          const buyPrice = allTd.eq(2).text().trim();
-          const sellPrice = allTd.eq(3).text().trim();
+          const buyPrice = allDiv.eq(4).text().trim();
+          const sellPrice = allDiv.eq(5).text().trim();
 
           let currencyAmountFrom = null;
           let currencyAmountTo = null;
@@ -74,7 +74,6 @@ export function siamExchange() {
               }
             }
           }
-
         }
       });
 
