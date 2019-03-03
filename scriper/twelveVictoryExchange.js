@@ -24,7 +24,6 @@ export function twelveVictoryExchange() {
         const allTd = $(this).children('td');
         const foundCurrencyType = allTd.eq(0).find("tr td").eq(0).find("strong").text().trim();
 
-        console.log(foundCurrencyType)
         if (!!foundCurrencyType) {
           currencyType = foundCurrencyType;
         }
@@ -63,7 +62,7 @@ export function twelveVictoryExchange() {
       });
 
 
-      return currencyListByType.reduce((currencyItemAcc, currencyItem) => {
+      const result = currencyListByType.reduce((currencyItemAcc, currencyItem) => {
         const foundExchangeCurrencies = currencyItemAcc.exchange_currencies.find((currency) =>
           currency.currency_type === currencyItem.currencyType);
 
@@ -93,6 +92,8 @@ export function twelveVictoryExchange() {
         branch_name: "Twelve Victory Exchange",
         exchange_currencies: []
       });
+
+      return [result]
     })
     .catch(function (err) {
       telegramLogger(err.message);
