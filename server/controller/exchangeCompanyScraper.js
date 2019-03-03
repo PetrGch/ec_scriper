@@ -8,12 +8,13 @@ import {siamExchange} from "../../scriper/siamExchange";
 import {superRichThailand} from "../../scriper/superRichThailand";
 import {scrapersConfig} from "../../scriper/scrapersConfig";
 import {scraperCompanySingleton} from "../service/exchangeCompanyScraperService";
+import {twelveVictoryExchange} from "../../scriper/twelveVictoryExchange";
 
 const exchangeCompanyScraper = express.Router({});
 
 // run scraper
 exchangeCompanyScraper.get('/run', (req, res) => {
-  Promise.all([centralBankOfThailand(), superRichThailand(), siaMoneyExchange(), panneeExchange(), siamExchange()])
+  Promise.all([centralBankOfThailand(), superRichThailand(), siaMoneyExchange(), panneeExchange(), siamExchange(), twelveVictoryExchange()])
     .then(responses => {
       const filteredResponses = responses.filter(response => response && Array.isArray(response));
       const concatedResponses = filteredResponses.reduce((responseAcc, response) => {
