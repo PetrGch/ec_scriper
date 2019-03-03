@@ -1,3 +1,7 @@
+const officeType = [
+  "ATM", "BANK", "KIOSK"
+];
+
 export function defineExchangeCompany(sequelize, DataTypes) {
   const ExchangeCompany = sequelize.define('exchange_company', {
     uuid: {
@@ -34,6 +38,11 @@ export function defineExchangeCompany(sequelize, DataTypes) {
     google_map_url: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    office_type: {
+      type: DataTypes.ENUM,
+      values: officeType,
+      allowNull: false
     }
   }, {
     underscored: true,

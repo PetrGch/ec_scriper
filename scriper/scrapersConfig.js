@@ -3,6 +3,7 @@ import {centralBankOfThailand} from "./centralBankOfThailand";
 import {siaMoneyExchange} from "./SIAMoneyExchange";
 import {panneeExchange} from "./panneeExchange";
 import {siamExchange} from "./siamExchange";
+import {twelveVictoryExchange} from "./twelveVictoryExchange";
 
 export const scrapersConfig = [
   {
@@ -29,5 +30,10 @@ export const scrapersConfig = [
     name: "Siam Exchange",
     difficulties: 1,
     scrape: siamExchange
+  },
+  {
+    name: "Twelve Victory Exchange",
+    difficulties: 1,
+    scrape: twelveVictoryExchange
   }
 ];
