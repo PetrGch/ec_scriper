@@ -12,7 +12,7 @@ export function defineExchangeCurrency(sequelize, DataTypes) {
     tableName: 'currency'
   });
 
-  ExchangeCurrency.doAssociate = function (models) {
+  ExchangeCurrency.associate = function (models) {
     ExchangeCurrency.belongsToMany(models.ExchangeCompany, { through: models.CompanyCurrency });
     ExchangeCurrency.hasMany(models.ExchangeCurrencyAmount);
   };

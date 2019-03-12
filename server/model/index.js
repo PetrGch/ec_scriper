@@ -39,8 +39,8 @@ const models = {
 
 
 Object.keys(models).forEach(function (modelName) {
-  if ('doAssociate' in models[modelName]) {
-    models[modelName].doAssociate(models);
+  if ('associate' in models[modelName]) {
+    models[modelName].associate(models);
   }
 });
 

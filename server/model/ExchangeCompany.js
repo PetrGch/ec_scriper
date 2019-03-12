@@ -53,7 +53,7 @@ export function defineExchangeCompany(sequelize, DataTypes) {
     tableName: 'company'
   });
 
-  ExchangeCompany.doAssociate = function (models) {
+  ExchangeCompany.associate = function (models) {
     ExchangeCompany.belongsToMany(models.ExchangeCurrency, { through: models.CompanyCurrency });
     ExchangeCompany.hasOne(models.ExchangeCompanyDetail);
     ExchangeCompany.hasOne(models.ExchangeCompanyWorkingTime);
