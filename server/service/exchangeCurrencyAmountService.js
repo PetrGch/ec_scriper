@@ -4,15 +4,19 @@ import {getFixedNumber} from "../util/converter";
 export function createManyCurrenciesAmount(currencyId, currenciesAmount) {
   if (currenciesAmount && currenciesAmount.length !== 0) {
     const mappedCurrency = currenciesAmount.map(amount => {
+      const sellPrice = !isNaN(amount.sell_price) ? amount.sell_price : null;
+      const buyPrice = !isNaN(amount.buy_price) ? amount.buy_price : null;
+
       return {
+        currency_id: currencyId,
         currency_amount: amount.currency_amount || 1,
         currency_amount_from: amount.currency_amount_from || 1,
         currency_amount_to: amount.currency_amount_to,
-        sell_price: amount.sell_price,
-        buy_price: amount.buy_price,
+        sell_price: sellPrice,
+        buy_price: buyPrice,
         exchange_currency_id: currencyId,
-        sell_trend: amount.sell_price,
-        buy_trend: amount.buy_price
+        sell_trend: sellPrice,
+        buy_trend: buyPrice
       }
     });
 
@@ -36,12 +40,12 @@ export async function updateManyCurrencyAmount(oldCurrency, newCurrency) {
     await deleteManyCurrenciesAmount(filteredAmounts.delete);
   }
 
-  if (filteredAmounts.create.length !== 0) {
-    await createManyCurrenciesAmount(oldCurrency.id, filteredAmounts.create);
-  }
-
   if (filteredAmounts.update.length !== 0) {
     await updateAllAmounts(filteredAmounts.update);
+  }
+
+  if (filteredAmounts.create.length !== 0) {
+    await createManyCurrenciesAmount(oldCurrency.id, filteredAmounts.create);
   }
 
   return null;

@@ -6,20 +6,42 @@ import {
 } from "./exchangeCurrencyAmountService";
 import {findCompanyByBranchName} from "./exchangeCompanyService";
 
-export function createManyCurrencies(companyId, currencies) {
+export function findAllCurrenciesByLinkName(linkName) {
+  return models.ExchangeCompany.findOne({
+    where: {
+      link_currency_by: linkName
+    },
+    include: [{
+      model: models.ExchangeCurrency,
+      through: {
+        where: {
+          link_name: linkName
+        }
+      }
+    }]
+  }).then((company) => {
+    if (company && company.currencies) {
+      return company.currencies
+    }
+
+    return null;
+  });
+}
+
+export function createManyCurrencies(company, currencies) {
   if (currencies && currencies.length !== 0) {
     return Promise.all(currencies
       .filter(currency => !!currency.currency_type)
       .map(currency => {
         return models.ExchangeCurrency.create({
-          currency_name: currency.currency_name,
-          currency_type: currency.currency_type,
-          exchange_company_id: companyId
+          currency_type: currency.currency_type
         })
-          .then(currencyAmount => {
-            return createManyCurrenciesAmount(currencyAmount.id, currency.exchange_currency_amounts);
+          .then(createdCurrency => {
+            company.addCurrency(createdCurrency, { through: { link_name: company.link_currency_by }});
+
+            return createManyCurrenciesAmount(createdCurrency.id, currency.exchange_currency_amounts);
           });
-      }));
+      }))
   }
 
   return null;
@@ -47,20 +69,7 @@ export async function deleteManyCurrencies(currencies) {
 export async function updateManyCurrencies(currencies) {
   await currencies.forEach(async ({ oldCurrency, newCurrency }) => {
     if (oldCurrency.exchange_currency_amounts && Array.isArray(oldCurrency.exchange_currency_amounts)) {
-      await updateManyCurrencyAmount(oldCurrency, newCurrency)
-        .then(() => {
-          if (newCurrency.currency_name && oldCurrency.currency_name !== newCurrency.currency_name) {
-            models.ExchangeCurrency.update(
-              { currency_name: newCurrency.currency_name },
-              { where: { id: oldCurrency.id } })
-          }
-        });
-    } else {
-      if (newCurrency.currency_name && oldCurrency.currency_name !== newCurrency.currency_name) {
-        await models.ExchangeCurrency.update(
-          { currency_name: newCurrency.currency_name },
-          { where: { id: oldCurrency.id } })
-      }
+      await updateManyCurrencyAmount(oldCurrency, newCurrency);
     }
   });
 
@@ -75,18 +84,19 @@ async function findAllCurrenciesByBranchName(branchesPayload) {
   if (branchesPayload && branchesPayload.length !== 0) {
     branchesPayload.forEach(async branch => {
       const foundBranch = await findCompanyByBranchName(branch.branch_name);
-      if (foundBranch !== null) {
-        const filteredCurrencies = filterCurrencies(foundBranch, branch);
+      const filteredCurrencies = filterCurrencies(foundBranch, branch);
+
+      if (foundBranch !== null && filteredCurrencies !== null) {
         if (filteredCurrencies.delete.length !== 0) {
           await deleteManyCurrencies(filteredCurrencies.delete);
         }
 
-        if (filteredCurrencies.create.length !== 0) {
-          await createManyCurrencies(foundBranch.id, filteredCurrencies.create);
-        }
-
         if (filteredCurrencies.update.length !== 0) {
           await updateManyCurrencies(filteredCurrencies.update);
+        }
+
+        if (filteredCurrencies.create.length !== 0) {
+          await createManyCurrencies(foundBranch, filteredCurrencies.create);
         }
       }
     });
@@ -98,21 +108,25 @@ function filterCurrencies(foundBranch = [], branchPayload = []) {
   let forDelete = [];
   let forCreate = [];
 
-  if (foundBranch.exchange_currencies && foundBranch.exchange_currencies.length === 0) {
+  if (branchPayload.length === 0) {
+    return null;
+  }
+
+  if (foundBranch.currencies && foundBranch.currencies.length === 0) {
     if (branchPayload.exchange_currencies && branchPayload.exchange_currencies.length !== 0) {
       forCreate = forCreate.concat(branchPayload.exchange_currencies);
     }
   } else if (branchPayload.exchange_currencies && branchPayload.exchange_currencies.length === 0) {
-    if (foundBranch.exchange_currencies && foundBranch.exchange_currencies.length !== 0) {
-      forDelete = forDelete.concat(foundBranch.exchange_currencies);
+    if (foundBranch.currencies && foundBranch.currencies.length !== 0) {
+      forDelete = forDelete.concat(foundBranch.currencies);
     }
   } else if (branchPayload.exchange_currencies && branchPayload.exchange_currencies.length !== 0) {
     forCreate = branchPayload.exchange_currencies.slice();
-    forDelete = foundBranch.exchange_currencies.slice();
+    forDelete = foundBranch.currencies.slice();
 
     branchPayload.exchange_currencies.forEach(currencyInPayload => {
-      if (foundBranch.exchange_currencies && foundBranch.exchange_currencies.length !== 0) {
-        foundBranch.exchange_currencies.forEach(currency => {
+      if (foundBranch.currencies && foundBranch.currencies.length !== 0) {
+        foundBranch.currencies.forEach(currency => {
           if (currency.currency_type === currencyInPayload.currency_type) {
             const createIndex = forCreate.indexOf(currencyInPayload);
             const deleteIndex = forDelete.indexOf(currency);

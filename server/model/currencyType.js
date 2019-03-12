@@ -11,5 +11,6 @@ export const currencyType = [
   'ILS', 'PGK', 'NPR', 'MVR',
   'JOD', 'IQD', 'LKR', 'PLN',
   'EGP', 'LAK', 'KES', 'KHR',
-  'CZK', 'BDT', 'MXN'
+  'CZK', 'BDT', 'MXN', 'ISR',
+  'SCP', 'SCO', 'TRL'
 ];

@@ -24,11 +24,11 @@ export function defineExchangeCurrencyAmount(sequelize, DataTypes) {
       allowNull: true
     },
     sell_trend: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: true
     },
     buy_trend: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: true
     },
   }, {

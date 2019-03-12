@@ -1,11 +1,7 @@
 import {currencyType} from "./currencyType";
 
 export function defineExchangeCurrency(sequelize, DataTypes) {
-  const ExchangeCurrency = sequelize.define('exchange_currency', {
-    currency_name: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+  const ExchangeCurrency = sequelize.define('currency', {
     currency_type: {
       type: DataTypes.ENUM,
       values: [...currencyType],
@@ -13,12 +9,12 @@ export function defineExchangeCurrency(sequelize, DataTypes) {
     }
   }, {
     underscored: true,
-    tableName: 'exchange_currency'
+    tableName: 'currency'
   });
 
-  ExchangeCurrency.associate = function (models) {
-    ExchangeCurrency.belongsTo(models.ExchangeCompany);
-    ExchangeCurrency.hasMany(models.ExchangeCurrencyAmount)
+  ExchangeCurrency.doAssociate = function (models) {
+    ExchangeCurrency.belongsToMany(models.ExchangeCompany, { through: models.CompanyCurrency });
+    ExchangeCurrency.hasMany(models.ExchangeCurrencyAmount);
   };
 
   return ExchangeCurrency;

@@ -3,7 +3,7 @@ const officeType = [
 ];
 
 export function defineExchangeCompany(sequelize, DataTypes) {
-  const ExchangeCompany = sequelize.define('exchange_company', {
+  const ExchangeCompany = sequelize.define('company', {
     uuid: {
       type: DataTypes.UUID,
       allowNull: false,
@@ -43,18 +43,18 @@ export function defineExchangeCompany(sequelize, DataTypes) {
       type: DataTypes.ENUM,
       values: officeType,
       allowNull: false
+    },
+    link_currency_by: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     underscored: true,
-    tableName: 'exchange_company',
-    classMethods: {
-      associate: function (models) {}
-    }
+    tableName: 'company'
   });
 
-  ExchangeCompany.associate = function (models) {
-    ExchangeCompany.hasMany(models.ExchangeCurrency);
-    ExchangeCompany.hasMany(models.ExchangeCompanyBranch);
+  ExchangeCompany.doAssociate = function (models) {
+    ExchangeCompany.belongsToMany(models.ExchangeCurrency, { through: models.CompanyCurrency });
     ExchangeCompany.hasOne(models.ExchangeCompanyDetail);
     ExchangeCompany.hasOne(models.ExchangeCompanyWorkingTime);
   };

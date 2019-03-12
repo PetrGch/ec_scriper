@@ -14,7 +14,7 @@ export async function superRichThailand() {
   await wait;
 
   const selectorOption = await page.evaluate(() => {
-    let items = document.querySelectorAll('.selectLocationRate option');
+    let items = document.querySelectorAll('#table-rate .selectLocationRate option');
     return [...items].map(item => ({
       branch_name: item.innerHTML,
       value: item.value

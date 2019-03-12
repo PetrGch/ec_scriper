@@ -7,7 +7,7 @@ import {twelveVictoryExchange} from "./twelveVictoryExchange";
 
 export const scrapersConfig = [
   {
-    name: "SuperRichThailand",
+    name: "Super Rich (Thailand)",
     difficulties: 3,
     scrape: superRichThailand
   },

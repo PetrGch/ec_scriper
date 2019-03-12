@@ -1,29 +1,26 @@
 import uuid from "uuid/v4";
 
 import models from "../model";
-import {createManyCurrencies} from "./exchangeCurrencyService";
+import {createManyCurrencies, findAllCurrenciesByLinkName} from "./exchangeCurrencyService";
 
 export function getAllExchangeCompanies() {
   return models.ExchangeCompany.findAll({
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type'],
+        attributes: ['id', 'currency_type'],
+        through: {
+          attributes: ['id', 'link_name'],
+        },
         include: [
           {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
               'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ],
+            ]
           }
         ]
-      },
-      {
-        model: models.ExchangeCompanyBranch,
-        attributes: [
-          'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
-        ],
       },
       {
         model: models.ExchangeCompanyDetail,
@@ -49,9 +46,16 @@ export function postExchangeCompany(companyPayload) {
     is_central_bank: companyPayload.is_central_bank,
     address: companyPayload.address,
     google_map_url: companyPayload.google_map_url,
-    office_type: companyPayload.office_type
-  }).then(company => {
-    return createManyCurrencies(company.id, companyPayload.exchange_currencies);
+    office_type: companyPayload.office_type,
+    link_currency_by: companyPayload.link_currency_by
+  }).then(async (company) => {
+    const foundCurrencies = await findAllCurrenciesByLinkName(company.link_currency_by);
+
+    if (foundCurrencies && !!foundCurrencies.length) {
+      company.addCurrencies(foundCurrencies, { through: { link_name: company.link_currency_by }});
+    } else {
+      return createManyCurrencies(company, companyPayload.exchange_currencies);
+    }
   });
 }
 
@@ -61,22 +65,19 @@ export function findCompanyById(id) {
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type'],
+        attributes: ['id', 'currency_type'],
+        through: {
+          attributes: ['id', 'link_name'],
+        },
         include: [
           {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
               'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ],
+            ]
           }
         ]
-      },
-      {
-        model: models.ExchangeCompanyBranch,
-        attributes: [
-          'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
-        ],
       },
       {
         model: models.ExchangeCompanyDetail,
@@ -104,22 +105,19 @@ export function findCompanyByBranchName(branchName) {
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type'],
+        attributes: ['id', 'currency_type'],
+        through: {
+          attributes: ['id', 'link_name'],
+        },
         include: [
           {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
               'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ],
+            ]
           }
         ]
-      },
-      {
-        model: models.ExchangeCompanyBranch,
-        attributes: [
-          'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
-        ],
       },
       {
         model: models.ExchangeCompanyDetail,
@@ -137,26 +135,23 @@ export function findCompanyByBranchName(branchName) {
 
 export function findCompanyByName(companyName) {
   return models.ExchangeCompany.findAll({
-    where: {company_name: `${companyName}`},
+    where: { company_name: `${companyName}` },
     include: [
       {
         model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_name', 'currency_type'],
+        attributes: ['id', 'currency_type'],
+        through: {
+          attributes: ['id', 'link_name'],
+        },
         include: [
           {
             model: models.ExchangeCurrencyAmount,
             attributes: [
               'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
               'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ],
+            ]
           }
         ]
-      },
-      {
-        model: models.ExchangeCompanyBranch,
-        attributes: [
-          'branch_name', 'lat', 'lng', 'address', 'google_map_url', 'branch_type'
-        ],
       },
       {
         model: models.ExchangeCompanyDetail,

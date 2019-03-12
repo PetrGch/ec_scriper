@@ -4,9 +4,9 @@ import {defineExchangeCompany} from "./ExchangeCompany";
 import {defineExchangeCurrencyAmount} from "./ExchangeCurrencyAmount";
 import {defineExchangeCompanyWorkingTime} from "./ExchangeCompanyWorkingTime";
 import {defineExchangeCompanyDetail} from "./ExchangeCompanyDetail";
-import {defineExchangeCompanyBranch} from "./ExchangeCompanyBranch";
 import {defineCentralBank} from "./CentralBank";
 import {defineCentralBankDetail} from "./CentralBankDetail";
+import {defineExchangeCompanyExchangeCurrency} from "./ExchangeCompanyExchangeCurrency";
 
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(
@@ -28,18 +28,19 @@ const sequelize = new Sequelize(
 
 const models = {
   ExchangeCompany: defineExchangeCompany(sequelize, Sequelize.DataTypes),
-  ExchangeCompanyBranch: defineExchangeCompanyBranch(sequelize, Sequelize.DataTypes),
+  ExchangeCurrency: defineExchangeCurrency(sequelize, Sequelize.DataTypes),
+  CompanyCurrency: defineExchangeCompanyExchangeCurrency(sequelize, Sequelize.DataTypes),
+  ExchangeCurrencyAmount: defineExchangeCurrencyAmount(sequelize, Sequelize.DataTypes),
   ExchangeCompanyWorkingTime: defineExchangeCompanyWorkingTime(sequelize, Sequelize.DataTypes),
   ExchangeCompanyDetail: defineExchangeCompanyDetail(sequelize, Sequelize.DataTypes),
-  ExchangeCurrency: defineExchangeCurrency(sequelize, Sequelize.DataTypes),
-  ExchangeCurrencyAmount: defineExchangeCurrencyAmount(sequelize, Sequelize.DataTypes),
   CentralBank: defineCentralBank(sequelize, Sequelize.DataTypes),
   CentralBankDetail: defineCentralBankDetail(sequelize, Sequelize.DataTypes)
 };
 
+
 Object.keys(models).forEach(function (modelName) {
-  if ('associate' in models[modelName]) {
-    models[modelName].associate(models);
+  if ('doAssociate' in models[modelName]) {
+    models[modelName].doAssociate(models);
   }
 });
 

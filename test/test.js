@@ -3,6 +3,7 @@ import fs from "fs";
 import cheerio from "cheerio";
 import {telegramLogger} from "../server/bot/telegramServerBot";
 import {twelveVictoryExchange} from "../scriper/twelveVictoryExchange";
+import {superRichThailand} from "../scriper/superRichThailand";
 const puppeteer = require('puppeteer');
 
 const options = {
@@ -29,7 +30,7 @@ const options = {
 //   await browser.close();
 // })();
 
-twelveVictoryExchange().then((response) => {
+superRichThailand().then((response) => {
   fs.writeFile('result.json', JSON.stringify(response), (err) => {
     if (err) throw err;
     console.log('Data written to file');
