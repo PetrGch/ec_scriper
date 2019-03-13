@@ -5,6 +5,6 @@ export function postExchangeCompanyDetail(companyId, companyDetailPayload) {
     phone: companyDetailPayload.phone,
     website: companyDetailPayload.website,
     email: companyDetailPayload.email,
-    exchange_company_id: companyId
+    company_id: companyId
   });
 }

@@ -16,6 +16,6 @@ export function exchangeCompanyWorkingTimeService(companyId, companyWorkingTimeP
     st_to: companyWorkingTimePayload.st_to,
     sn_from: companyWorkingTimePayload.sn_from,
     sn_to: companyWorkingTimePayload.sn_to,
-    exchange_company_id: companyId
+    company_id: companyId
   });
 }
