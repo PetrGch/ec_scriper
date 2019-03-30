@@ -128,7 +128,8 @@ export function updateCompany(company, companyPayload) {
     is_central_bank: companyPayload.is_central_bank || company.is_central_bank,
     address: companyPayload.address || company.address,
     google_map_url: companyPayload.google_map_url || company.google_map_url,
-    office_type: companyPayload.office_type || company.office_type
+    office_type: companyPayload.office_type || company.office_type,
+    link_currency_by: companyPayload.link_currency_by || company.link_currency_by
   }).catch(ex => console.error(ex));
 }
 

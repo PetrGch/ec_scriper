@@ -16,7 +16,7 @@ export async function getAllCurrencyType() {
           }
 
           return currencyAcc;
-        }, [])
+        }, ["EUR", "USD", "GBP"])
         : []
     })
 }
