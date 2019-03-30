@@ -12,11 +12,6 @@ export const scrapersConfig = [
     scrape: superRichThailand
   },
   {
-    name: "Central Bank Of Thailand",
-    difficulties: 2,
-    scrape: centralBankOfThailand
-  },
-  {
     name: "SIA Money Exchange",
     difficulties: 1,
     scrape: siaMoneyExchange

@@ -1,7 +1,7 @@
 import express from 'express';
 
 import models from '../model'
-import {updateCurrenciesAmount} from "../service/exchangeCurrencyService";
+import {getAllCurrencyType, updateCurrenciesAmount} from "../service/exchangeCurrencyService";
 
 const exchangeCurrencyController = express.Router({});
 
@@ -10,6 +10,15 @@ exchangeCurrencyController.get('/', (req, res) => {
   models.ExchangeCompany.findAll()
     .then(currencies => {
       res.json(currencies);
+    })
+    .catch(ex => res.send(ex));
+});
+
+// get all currency types
+exchangeCurrencyController.get('/types', async (req, res) => {
+  getAllCurrencyType()
+    .then(currencyTypes => {
+      res.json(currencyTypes);
     })
     .catch(ex => res.send(ex));
 });

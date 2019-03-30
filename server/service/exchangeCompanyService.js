@@ -3,37 +3,58 @@ import uuid from "uuid/v4";
 import models from "../model";
 import {createManyCurrencies, findAllCurrenciesByLinkName} from "./exchangeCurrencyService";
 
-export function getAllExchangeCompanies() {
-  return models.ExchangeCompany.findAll({
+function getCurrencyQuery(whereParams) {
+  const currencyQuery = {
+    model: models.ExchangeCurrency,
+    attributes: ['id', 'currency_type'],
+    through: {
+      attributes: ['id', 'link_name'],
+    },
     include: [
       {
-        model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_type'],
-        through: {
-          attributes: ['id', 'link_name'],
-        },
-        include: [
-          {
-            model: models.ExchangeCurrencyAmount,
-            attributes: [
-              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ]
-          }
-        ]
-      },
-      {
-        model: models.ExchangeCompanyDetail,
-        attributes: ['phone', 'website', 'email'],
-      },
-      {
-        model: models.ExchangeCompanyWorkingTime,
+        model: models.ExchangeCurrencyAmount,
         attributes: [
-          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
-          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
-      },
+          'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
+          'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
+        ]
+      }
     ]
-  });
+  };
+
+  return whereParams
+    ? Object.assign({}, currencyQuery, { where: whereParams })
+    : currencyQuery;
+
+}
+
+function getCompanyDetailQuery() {
+  return {
+    model: models.ExchangeCompanyDetail,
+    attributes: ['phone', 'website', 'email'],
+  }
+}
+
+function getCompanyWorkingTimeQuery() {
+  return {
+    model: models.ExchangeCompanyWorkingTime,
+    attributes: [
+      'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
+      'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
+  }
+}
+
+function getAllCompaniesQuery(whereParams) {
+  return {
+    include: [
+      getCurrencyQuery(whereParams),
+      getCompanyDetailQuery(),
+      getCompanyWorkingTimeQuery()
+    ]
+  }
+}
+
+export function getAllExchangeCompanies(currencyType) {
+  return models.ExchangeCompany.findAll(getAllCompaniesQuery(currencyType));
 }
 
 export function postExchangeCompany(companyPayload) {
@@ -63,32 +84,9 @@ export function findCompanyById(id) {
   return models.ExchangeCompany.findOne({
     where: {id: id},
     include: [
-      {
-        model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_type'],
-        through: {
-          attributes: ['id', 'link_name'],
-        },
-        include: [
-          {
-            model: models.ExchangeCurrencyAmount,
-            attributes: [
-              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ]
-          }
-        ]
-      },
-      {
-        model: models.ExchangeCompanyDetail,
-        attributes: ['phone', 'website', 'email'],
-      },
-      {
-        model: models.ExchangeCompanyWorkingTime,
-        attributes: [
-          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
-          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
-      },
+      getCurrencyQuery(),
+      getCompanyDetailQuery(),
+      getCompanyWorkingTimeQuery()
     ]
   });
 }
@@ -103,32 +101,9 @@ export function findCompanyByBranchName(branchName) {
   return models.ExchangeCompany.findOne({
     where: {branch_name: `${branchName}`},
     include: [
-      {
-        model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_type'],
-        through: {
-          attributes: ['id', 'link_name'],
-        },
-        include: [
-          {
-            model: models.ExchangeCurrencyAmount,
-            attributes: [
-              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ]
-          }
-        ]
-      },
-      {
-        model: models.ExchangeCompanyDetail,
-        attributes: ['phone', 'website', 'email'],
-      },
-      {
-        model: models.ExchangeCompanyWorkingTime,
-        attributes: [
-          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
-          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
-      },
+      getCurrencyQuery(),
+      getCompanyDetailQuery(),
+      getCompanyWorkingTimeQuery()
     ]
   });
 }
@@ -137,32 +112,9 @@ export function findCompanyByName(companyName) {
   return models.ExchangeCompany.findAll({
     where: { company_name: `${companyName}` },
     include: [
-      {
-        model: models.ExchangeCurrency,
-        attributes: ['id', 'currency_type'],
-        through: {
-          attributes: ['id', 'link_name'],
-        },
-        include: [
-          {
-            model: models.ExchangeCurrencyAmount,
-            attributes: [
-              'id', 'currency_amount', 'currency_amount_from', 'currency_amount_to',
-              'sell_price', 'buy_price', 'sell_trend', 'buy_trend', 'updated_at'
-            ]
-          }
-        ]
-      },
-      {
-        model: models.ExchangeCompanyDetail,
-        attributes: ['phone', 'website', 'email'],
-      },
-      {
-        model: models.ExchangeCompanyWorkingTime,
-        attributes: [
-          'mn_from', 'mn_to', 'tu_from', 'tu_to', 'we_from', 'we_to',
-          'th_from', 'th_to', 'fr_from', 'fr_to', 'st_from', 'st_to', 'sn_from', 'sn_to']
-      },
+      getCurrencyQuery(),
+      getCompanyDetailQuery(),
+      getCompanyWorkingTimeQuery()
     ]
   });
 }

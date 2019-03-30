@@ -6,6 +6,21 @@ import {
 } from "./exchangeCurrencyAmountService";
 import {findCompanyByBranchName} from "./exchangeCompanyService";
 
+export async function getAllCurrencyType() {
+  return await models.ExchangeCurrency.findAll()
+    .then((currencies) => {
+      return currencies ?
+        currencies.reduce((currencyAcc, currency) => {
+          if (!currencyAcc.includes(currency.currency_type)) {
+            currencyAcc.push(currency.currency_type);
+          }
+
+          return currencyAcc;
+        }, [])
+        : []
+    })
+}
+
 export function findAllCurrenciesByLinkName(linkName) {
   return models.ExchangeCompany.findOne({
     where: {

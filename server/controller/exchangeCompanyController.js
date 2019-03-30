@@ -7,25 +7,30 @@ import {
   getAllExchangeCompanies,
   postExchangeCompany, updateCompany
 } from "../service/exchangeCompanyService";
-import {CentralBankSingleton} from "../service/centralBankService";
 
 const exchangeCompanyController = express.Router({});
 
 // get all companies
 exchangeCompanyController.get('/', (req, res) => {
-  getAllExchangeCompanies()
-    .then(company => {
-      res.json(company);
+  const { currencyType } = req.query;
+  const whereParams = currencyType ? { currency_type: currencyType } : null;
+
+  getAllExchangeCompanies(whereParams)
+    .then(companies => {
+      res.json(companies);
     })
-    .catch(ex => res.send(ex));
+    .catch((ex) => res.status(500).send(ex));
 });
 
 // get all companies and central bank data for SNAPSHOT
 exchangeCompanyController.get('/snapshot', (req, res) => {
-  const centralBankData = CentralBankSingleton.getUsdPortion("7");
+  // const centralBankData = CentralBankSingleton.getUsdPortion("7");
   getAllExchangeCompanies()
     .then(company => {
-      res.json({ company, centralBank: centralBankData });
+      res.json({
+        company,
+        // centralBank: centralBankData
+      });
     })
     .catch(ex => res.send(ex));
 });
@@ -33,6 +38,7 @@ exchangeCompanyController.get('/snapshot', (req, res) => {
 // get company by id
 exchangeCompanyController.get('/:id', (req, res) => {
   const companyId = req.params.id;
+
   if (companyId) {
     findCompanyById(companyId)
       .then(company => {
@@ -90,6 +96,7 @@ exchangeCompanyController.post('/', (req, res) => {
 exchangeCompanyController.put('/:id', async (req, res) => {
   const companyId = req.params.id;
   const companyPayload = req.body;
+
   if (companyId) {
     findCompanyById(companyId)
       .then(company => {
