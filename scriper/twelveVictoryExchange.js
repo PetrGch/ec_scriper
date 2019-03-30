@@ -89,7 +89,7 @@ export function twelveVictoryExchange() {
 
         return currencyItemAcc
       }, {
-        branch_name: "Twelve Victory Exchange",
+        branch_name: "Head Office (Pradipat1)",
         exchange_currencies: []
       });
 
