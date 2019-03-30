@@ -119,7 +119,7 @@ export function findCompanyByName(companyName) {
   });
 }
 
-export function updateCompany(company, companyPayload) {
+export function updateCompany(company, companyPayload, isCurrencyNeedToBeUpdated = false) {
   return company.update({
     branch_name: companyPayload.branch_name || company.branch_name,
     company_name: companyPayload.company_name || company.company_name,
@@ -130,7 +130,17 @@ export function updateCompany(company, companyPayload) {
     google_map_url: companyPayload.google_map_url || company.google_map_url,
     office_type: companyPayload.office_type || company.office_type,
     link_currency_by: companyPayload.link_currency_by || company.link_currency_by
-  }).catch(ex => console.error(ex));
+  })
+    .then(async (company) => {
+      if (isCurrencyNeedToBeUpdated) {
+        const foundCurrencies = await findAllCurrenciesByLinkName(company.link_currency_by);
+
+        if (foundCurrencies && !!foundCurrencies.length) {
+          company.addCurrencies(foundCurrencies, { through: { link_name: company.link_currency_by }});
+        }
+      }
+    })
+    .catch(ex => console.error(ex));
 }
 
 export function deleteCompanyById(company) {

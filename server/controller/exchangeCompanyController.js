@@ -96,11 +96,12 @@ exchangeCompanyController.post('/', (req, res) => {
 exchangeCompanyController.put('/:id', async (req, res) => {
   const companyId = req.params.id;
   const companyPayload = req.body;
+  const { updateCurrency } = req.query;
 
   if (companyId) {
     findCompanyById(companyId)
       .then(company => {
-        return updateCompany(company, companyPayload);
+        return updateCompany(company, companyPayload, updateCurrency);
       })
       .then(() => {
         res.sendStatus(200);
