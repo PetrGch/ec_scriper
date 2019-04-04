@@ -6,10 +6,6 @@ import properties from "./properties";
 import index from "./controller/index";
 import models from "./model";
 
-// ----------------- Telegram Bot ------------------
-import "./bot/telegramBot";
-// ----------------- Telegram Bot ------------------
-
 const app = express();
 
 const corsOptions = {

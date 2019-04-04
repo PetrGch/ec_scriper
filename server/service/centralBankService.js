@@ -6,7 +6,7 @@ import {telegramLogger} from "../bot/telegramServerBot";
 import models from "../model";
 import {createCentralBankDetail, deleteCentralBankDetail} from "./centralBankDetailService";
 
-export function getCentralBankDataByCurrencyTypeAndRange(currencyType = "USD") {
+export function getCentralBankDataByCurrencyType(currencyType = "USD") {
   return models.CentralBank.findOne({
     where: {
       currency_id: currencyType
@@ -26,7 +26,7 @@ export function postCentralBank(centralBankPayload) {
     return Promise.reject("Central Bank payload is not correct");
   }
 
-  return getCentralBankDataByCurrencyTypeAndRange(centralBankPayload.dataHeader.currency_id)
+  return getCentralBankDataByCurrencyType(centralBankPayload.dataHeader.currency_id)
     .then((data) => {
       if (data === null) {
         return models.CentralBank.create({
@@ -50,7 +50,7 @@ export function postCentralBank(centralBankPayload) {
 }
 
 function deleteCentralBank(currencyType) {
-  return getCentralBankDataByCurrencyTypeAndRange(currencyType)
+  return getCentralBankDataByCurrencyType(currencyType)
     .then((data) => {
       if (data !== null && data.id) {
         return deleteCentralBankDetail(data.id);

@@ -1,7 +1,7 @@
 import express from 'express';
 import {
   CentralBankSingleton,
-  getCentralBankDataByCurrencyTypeAndRange
+  getCentralBankDataByCurrencyType
 } from "../service/centralBankService";
 
 const centralBankController = express.Router({});
@@ -10,7 +10,7 @@ centralBankController.get("/", (req, res) => {
   const { currencyType, period } = req.query;
 
   if (currencyType) {
-    getCentralBankDataByCurrencyTypeAndRange(currencyType)
+    getCentralBankDataByCurrencyType(currencyType)
       .then((data) => {
         const returnData = period && !isNaN(parseInt(period))
           ? Object.assign(data.dataValues, { central_bank_details: data.dataValues.central_bank_details.slice(-period) })

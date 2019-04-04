@@ -3,12 +3,18 @@ import properties from "../properties";
 
 import {telegramServerBot} from "./telegramServerBot";
 
-const telegramBot = (function () {
-  let instance = new TelegramBot(properties.TELEGRAM_BOT, {polling: true});
+let telegramBot = null;
+
+(function () {
+  if (telegramBot) {
+    return;
+  }
+
+  let instance = new TelegramBot(properties.TELEGRAM_BOT);
 
   telegramServerBot(instance, properties.MY_TELEGRAM_ID);
 
-  return {
+  telegramBot = {
     bot() {
       return instance;
     },

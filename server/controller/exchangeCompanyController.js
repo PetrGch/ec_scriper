@@ -7,6 +7,7 @@ import {
   getAllExchangeCompanies,
   postExchangeCompany, updateCompany
 } from "../service/exchangeCompanyService";
+import {getCentralBankDataByCurrencyType} from "../service/centralBankService";
 
 const exchangeCompanyController = express.Router({});
 
@@ -24,15 +25,17 @@ exchangeCompanyController.get('/', (req, res) => {
 
 // get all companies and central bank data for SNAPSHOT
 exchangeCompanyController.get('/snapshot', (req, res) => {
-  // const centralBankData = CentralBankSingleton.getUsdPortion("7");
-  getAllExchangeCompanies()
-    .then(company => {
+  const allCurrency = getAllExchangeCompanies({ currency_type: "EUR" });
+  const centralBank = getCentralBankDataByCurrencyType("EUR");
+
+  Promise.all([centralBank, allCurrency])
+    .then(response => {
       res.json({
-        company,
-        // centralBank: centralBankData
+        centralBank: response[0],
+        company: response[1]
       });
     })
-    .catch(ex => res.send(ex));
+    .catch(ex => res.status(500).send(ex));
 });
 
 // get company by id

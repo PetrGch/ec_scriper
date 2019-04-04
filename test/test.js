@@ -30,7 +30,7 @@ const options = {
 //   await browser.close();
 // })();
 
-superRichThailand().then((response) => {
+twelveVictoryExchange().then((response) => {
   fs.writeFile('result.json', JSON.stringify(response), (err) => {
     if (err) throw err;
     console.log('Data written to file');

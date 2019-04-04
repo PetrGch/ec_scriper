@@ -26,6 +26,7 @@ export function twelveVictoryExchange() {
 
         if (!!foundCurrencyType) {
           currencyType = foundCurrencyType;
+          currencyItem.currencyType = foundCurrencyType;
         }
 
         if (currencyType) {
@@ -60,7 +61,6 @@ export function twelveVictoryExchange() {
           }
         }
       });
-
 
       const result = currencyListByType.reduce((currencyItemAcc, currencyItem) => {
         const foundExchangeCurrencies = currencyItemAcc.exchange_currencies.find((currency) =>
