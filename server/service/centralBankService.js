@@ -21,6 +21,20 @@ export function getCentralBankDataByCurrencyType(currencyType = "USD") {
   });
 }
 
+export function getCentralBankDataEurUsd() {
+  return models.CentralBankDetail.findAll({
+    limit: 2,
+    order: [["period", 'DESC']],
+    attributes: ['id', 'period', 'buy_price', "sell_price"],
+    include: [
+      {
+        model: models.CentralBank,
+        attributes: ["currency_id"],
+      }
+    ]
+  });
+}
+
 export function postCentralBank(centralBankPayload) {
   if (!centralBankPayload && !centralBankPayload.dataHeader.currency_id) {
     return Promise.reject("Central Bank payload is not correct");

@@ -1,7 +1,7 @@
 import express from 'express';
 import {
   CentralBankSingleton,
-  getCentralBankDataByCurrencyType
+  getCentralBankDataByCurrencyType, getCentralBankDataEurUsd
 } from "../service/centralBankService";
 
 const centralBankController = express.Router({});
@@ -22,6 +22,15 @@ centralBankController.get("/", (req, res) => {
   } else {
     res.status(500).send("currency type parameter was not specified");
   }
+});
+
+centralBankController.get("/eurusd", (req, res) => {
+  getCentralBankDataEurUsd()
+    .then((data) => {
+      res.status(200).json(data);
+    }).catch((ex) => {
+    res.status(500).send(ex);
+  });
 });
 
 centralBankController.get("/run", (req, res) => {
